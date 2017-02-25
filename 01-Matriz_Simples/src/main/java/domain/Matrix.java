@@ -29,9 +29,9 @@ public class Matrix {
      * @param column Coluna da matriz.
      * @param value Valor que será inserido.
      */
-    public void add(int row, int column, int value) {
+    public void add(int row, int column, double value) {
 
-        if (value != 0) {
+        if (value != 0.0D) {
             int indexCell = getIndex(row, column);
 
             if (indexCell == matrix.size()) {
@@ -47,7 +47,7 @@ public class Matrix {
         numberOfColumns = ((column + 1) > numberOfColumns) ? (column + 1) : numberOfColumns;
     }
 
-    public int get(int row, int column) {
+    public double get(int row, int column) {
         int indexCell = getIndex(row, column);
 
         return (indexCell == matrix.size()) ?  0 : matrix.get(indexCell).getValue();

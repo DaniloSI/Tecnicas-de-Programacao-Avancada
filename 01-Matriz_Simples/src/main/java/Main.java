@@ -1,6 +1,7 @@
 import controller.FileMatrix;
 import domain.Matrix;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -17,31 +18,21 @@ public class Main {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        Matrix matrix = new Matrix();
+        String resourcePath = "src" + File.separator + "main" + File.separator + "java" + File.separator + "resources" + File.separator;
+
         Matrix matrixOne;
         Matrix matrixTwo;
         Matrix matrixOneIgual;
         Matrix matrixTwoIgual;
 
-        matrix.add(0,0,5);
-        matrix.add(1,2,1);
-        matrix.add(2,2,4);
-        matrix.add(2,0,7);
-        matrix.add(2,3,8);
-
-        FileMatrix.writeFileMatrix(matrix, "src/resources/outputMatrix.txt");
-
-        System.out.println("Matriz escrita em um arquivo:");
-        System.out.println(FileMatrix.readFileMatrix("src/resources/outputMatrix.txt"));
-
         System.out.println("\nMatriz escrita a mao em um arquivo:");
-        System.out.println(FileMatrix.readFileMatrix("src/resources/matrixOne.txt"));
+        System.out.println(FileMatrix.readFileMatrix(resourcePath + "matrixOne.txt"));
 
-        matrixOne = FileMatrix.readFileMatrix("src/resources/matrixOne.txt");
-        matrixTwo = FileMatrix.readFileMatrix("src/resources/matrixTwo.txt");
+        matrixOne = FileMatrix.readFileMatrix(resourcePath + "matrixOne.txt");
+        matrixTwo = FileMatrix.readFileMatrix(resourcePath + "matrixTwo.txt");
 
-        matrixOneIgual = FileMatrix.readFileMatrix("src/resources/matrixOneIgual.txt");
-        matrixTwoIgual = FileMatrix.readFileMatrix("src/resources/matrixTwoIgual.txt");
+        matrixOneIgual = FileMatrix.readFileMatrix(resourcePath + "matrixOneIgual.txt");
+        matrixTwoIgual = FileMatrix.readFileMatrix(resourcePath + "matrixTwoIgual.txt");
 
         System.out.println("\nMatriz 1:");
         System.out.println(matrixOne);

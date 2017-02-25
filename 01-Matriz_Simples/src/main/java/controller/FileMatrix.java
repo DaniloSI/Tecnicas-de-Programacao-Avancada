@@ -27,7 +27,7 @@ public class FileMatrix {
 
             column = 0;
             for (String number: numbers) {
-                matrix.add(row, column, Integer.parseInt(number));
+                matrix.add(row, column, Double.parseDouble(number));
                 column++;
             }
 
@@ -44,7 +44,7 @@ public class FileMatrix {
 
         for (int row = 0; row < matrix.getNumberOfRows() ; row++) {
             for (int column = 0; column < matrix.getNumberOfColumns() ; column++) {
-                String value = Integer.toString(matrix.get(row, column));
+                String value = Double.toString(matrix.get(row, column));
 
                 writerMatrix.write(value);
 

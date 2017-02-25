@@ -6,11 +6,11 @@ package domain;
 public class Cell {
     private int row;
     private int column;
-    private int value;
+    private double value;
 
     public Cell() {}
 
-    public Cell(int row, int column, int value) {
+    public Cell(int row, int column, double value) {
         this.row = row;
         this.column = column;
         this.value = value;
@@ -32,11 +32,11 @@ public class Cell {
         this.column = column;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
