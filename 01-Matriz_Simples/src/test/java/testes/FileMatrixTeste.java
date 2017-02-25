@@ -33,7 +33,7 @@ public class FileMatrixTeste {
     }
 
     @Test
-    public void escritaLeituraMatrizArquivo() throws IOException {
+    public void leituraMatrizArquivo() throws IOException {
         assertEquals(FileMatrix.readFileMatrix(resourcePath + "escritaMatrizTeste.txt"), matrixToWrite);
     }
 }
