@@ -27,8 +27,11 @@ public class FileMatrix {
 
             column = 0;
             for (String number: numbers) {
-                matrix.add(row, column, Double.parseDouble(number));
-                column++;
+                if (!number.equals("")) {
+                    number = number.replace(",", ".");
+                    matrix.add(row, column, Double.parseDouble(number));
+                    column++;
+                }
             }
 
             row++;
@@ -45,8 +48,7 @@ public class FileMatrix {
         for (int row = 0; row < matrix.getNumberOfRows() ; row++) {
             for (int column = 0; column < matrix.getNumberOfColumns() ; column++) {
                 String value = Double.toString(matrix.get(row, column));
-
-                writerMatrix.write(value);
+                writerMatrix.write(value.replace(".", ","));
 
                 if (column != (matrix.getNumberOfColumns() - 1)) {
                     writerMatrix.write("\t");

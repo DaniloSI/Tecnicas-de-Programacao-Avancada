@@ -18,6 +18,7 @@ public class FileMatrixTeste {
 
     private Matrix matrixToWrite;
     private String resourcePath = "src" + File.separator + "main" + File.separator + "java" + File.separator + "resources" + File.separator;
+    private String resourcePathBdMatrizes = resourcePath + "bd-matrizes" + File.separator;
 
     @Before
     public void criarMatrizesEscreverEmArquivo() throws IOException {
@@ -35,5 +36,14 @@ public class FileMatrixTeste {
     @Test
     public void leituraMatrizArquivo() throws IOException {
         assertEquals(FileMatrix.readFileMatrix(resourcePath + "escritaMatrizTeste.txt"), matrixToWrite);
+    }
+
+    @Test
+    public void testeProdutoMatrizesLidasArquivo() throws IOException {
+        Matrix matrixX = FileMatrix.readFileMatrix(resourcePathBdMatrizes + "X.txt");
+        Matrix matrixY = FileMatrix.readFileMatrix(resourcePathBdMatrizes + "Y.txt");
+        Matrix matrixXvezesY = FileMatrix.readFileMatrix(resourcePathBdMatrizes + "XvezesY.txt");
+
+        assertEquals(true, matrixXvezesY.equals(matrixX.times(matrixY)));
     }
 }
