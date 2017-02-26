@@ -55,4 +55,18 @@ public class MatrixTeste {
         assertEquals(matrixOne.times(matrixTwo), matrixProduto);
     }
 
+    @Test
+    public void matrizesIguais() {
+        Matrix matrixIgual = new Matrix();
+
+        matrixIgual.add(0,0,2);
+        matrixIgual.add(0,1,3);
+        matrixIgual.add(1,0,0);
+        matrixIgual.add(1,1,1);
+        matrixIgual.add(2,0,-1);
+        matrixIgual.add(2,1,4);
+
+        assertEquals(true, matrixOne.equals(matrixIgual));
+    }
+
 }

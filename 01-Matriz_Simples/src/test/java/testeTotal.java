@@ -12,5 +12,5 @@ import testes.MatrixTeste;
         FileMatrixTeste.class,
         MatrixTeste.class
 })
-public class testeTotal {
+public class TesteTotal {
 }
