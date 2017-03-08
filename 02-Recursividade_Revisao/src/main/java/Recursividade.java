@@ -23,7 +23,7 @@ public class Recursividade {
         if (y == 0 || x == 0) {
             return 0;
         } else if (y < 0 && x > 0) {
-            return (y == -1) ? -x : -x + produtoDoisNumeros(x, y + 1);
+            return produtoDoisNumeros(y, x);
         } else if (y < 0 && x < 0){
             return produtoDoisNumeros(-x, -y);
         } else {
