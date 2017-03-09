@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -6,7 +8,13 @@ import java.util.List;
 public class Recursividade {
 
     public static void main(String[] args) {
+        List<Integer> listaElementos = new ArrayList<>();
+
+        Collections.addAll(listaElementos, 1, 2, 3, 4, 5, 6, 7, 8, 25);
+
         System.out.println(raizQuadrada(48.0, 15));
+
+        System.out.println(pesquisaElemento(listaElementos, 2));
     }
 
     public static int somaNumeros(List<Integer> listNumeros) {
@@ -56,7 +64,7 @@ public class Recursividade {
             raizProxima += 1.0;
         }
 
-        return _raizQuadrada(n, raizProxima, n / raizProxima, t - 1);
+        return _raizQuadrada(n, raizProxima, (n / raizProxima), (t - 1));
     }
 
     /**
@@ -71,8 +79,22 @@ public class Recursividade {
         if (t <= 0) {
             return b;
         } else {
-            return _raizQuadrada(n, (a + b) / 2.0, n / ((a + b) / 2.0), t - 1);
+            return _raizQuadrada(n, ((a + b) / 2.0), (n / ((a + b) / 2.0)), (t - 1));
         }
     }
+
+    public static boolean pesquisaElemento(List<Integer> listaElementos, int elemento) {
+        if (listaElementos.size() == 0) {
+            return false;
+        } else {
+            if (listaElementos.get(0) == elemento) {
+                return true;
+            } else {
+                return pesquisaElemento(listaElementos.subList(1, listaElementos.size()), elemento);
+            }
+        }
+    }
+
+    
 
 }
