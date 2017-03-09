@@ -51,7 +51,7 @@ public class Recursividade {
     public static double raizQuadrada(double n, int t) {
         double raizProxima = 0.0;
 
-        // Encontra um valor cujo o quadro eh o mais proximo possivel de n ou o proprio n.
+        // Encontra um valor cujo o quadrado eh o mais proximo possivel de n ou o proprio n.
         while (((raizProxima + 1) * (raizProxima + 1)) <= n) {
             raizProxima += 1.0;
         }
@@ -74,6 +74,5 @@ public class Recursividade {
             return _raizQuadrada(n, (a + b) / 2.0, n / ((a + b) / 2.0), t - 1);
         }
     }
-
 
 }
