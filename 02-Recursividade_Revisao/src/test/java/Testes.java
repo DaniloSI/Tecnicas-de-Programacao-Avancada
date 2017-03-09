@@ -26,14 +26,26 @@ public class Testes {
     }
 
     @Test
-    public void multiplicarDoisNumeros() {
-        assertEquals(true, Recursividade.produtoDoisNumeros(5, 0) == 0);
-        assertEquals(true, Recursividade.produtoDoisNumeros(0, 5) == 0);
-        assertEquals(true, Recursividade.produtoDoisNumeros(5, -5) == -25);
-        assertEquals(true, Recursividade.produtoDoisNumeros(-5, 5) == -25);
-        assertEquals(true, Recursividade.produtoDoisNumeros(-5, -5) == 25);
-        assertEquals(true, Recursividade.produtoDoisNumeros(5, 5) == 25);
+    public void multiplicarNumeros() {
+        assertEquals(true, Recursividade.produtoNumeros(5, 0) == 0);
+        assertEquals(true, Recursividade.produtoNumeros(0, 5) == 0);
+        assertEquals(true, Recursividade.produtoNumeros(5, -5) == -25);
+        assertEquals(true, Recursividade.produtoNumeros(-5, 5) == -25);
+        assertEquals(true, Recursividade.produtoNumeros(-5, -5) == 25);
+        assertEquals(true, Recursividade.produtoNumeros(5, 5) == 25);
     }
 
+    @Test
+    public void dividirNumeros() {
+        assertEquals(true, Recursividade.divisaoInteira(0, 5) == 0);
+        assertEquals(true, Recursividade.divisaoInteira(5, 1) == 5);
+        assertEquals(true, Recursividade.divisaoInteira(5, 2) == 2);
+        assertEquals(true, Recursividade.divisaoInteira(14, 7) == 2);
+        assertEquals(true, Recursividade.divisaoInteira(10, 2) == 5);
+        assertEquals(true, Recursividade.divisaoInteira(-21, 4) == -5);
+        assertEquals(true, Recursividade.divisaoInteira(21, -4) == -5);
+        assertEquals(true, Recursividade.divisaoInteira(21, 21) == 1);
+        assertEquals(true, Recursividade.divisaoInteira(21, 22) == 0);
+    }
 
 }
