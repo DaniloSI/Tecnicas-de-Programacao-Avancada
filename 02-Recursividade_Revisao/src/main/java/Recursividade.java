@@ -8,13 +8,30 @@ import java.util.List;
 public class Recursividade {
 
     public static void main(String[] args) {
-        List<Integer> listaElementos = new ArrayList<>();
+        List<Integer> primeiraListaElementos = new ArrayList<>();
+        List<Integer> segundaSistaElementos = new ArrayList<>();
 
-        Collections.addAll(listaElementos, 1, 2, 3, 4, 5, 6, 7, 8, 25);
+        Collections.addAll(primeiraListaElementos, 9, 7, 3, 28, 1015, 4, 53, 8, 6, 98, 2, 5, 25, 200);
+        Collections.addAll(segundaSistaElementos, 9, 7, 3, 28, 1015, 4, 53, 8, 6, 98, 2, 5, 25, 200);
 
         System.out.println(raizQuadrada(48.0, 15));
 
-        System.out.println(pesquisaElemento(listaElementos, 2));
+        System.out.println(pesquisaElemento(primeiraListaElementos, 2));
+
+        System.out.println(inverteString("Danilo de Oliveira - 09/03/2017 10:57"));
+
+        System.out.println(procuraMaiorValor(primeiraListaElementos));
+        System.out.println(procuraMenorValor(segundaSistaElementos));
+
+        System.out.println("Arara eh palindromo: " + isPalindromo("Arara"));
+        System.out.println("Carro eh palindromo: " + isPalindromo("Carro"));
+        System.out.println("o eh palindromo: " + isPalindromo("o"));
+        System.out.println("aa eh palindromo: " + isPalindromo("aa"));
+        System.out.println("aaababaaa eh palindromo: " + isPalindromo("aaababaaa"));
+
+
+
+
     }
 
     public static int somaNumeros(List<Integer> listNumeros) {
@@ -95,6 +112,58 @@ public class Recursividade {
         }
     }
 
-    
+    public static String inverteString(String string) {
+        int stringLength = string.length();
+
+        if ((stringLength == 0)) {
+            return "";
+        } else {
+            char ultimaLetra = string.charAt(stringLength - 1);
+
+            return ultimaLetra + inverteString(string.substring(0, stringLength - 1));
+        }
+    }
+
+    public static Integer procuraMaiorValor(List<Integer> listaNumeros) {
+        if (listaNumeros == null || listaNumeros.size() == 0){
+            return null;
+        } else if (listaNumeros.size() == 1) {
+            return listaNumeros.get(0);
+        } else {
+            if(listaNumeros.get(0) > listaNumeros.get(1)) {
+                listaNumeros.set(1, listaNumeros.get(0));
+            }
+
+            return procuraMaiorValor(listaNumeros.subList(1, listaNumeros.size()));
+        }
+    }
+
+    public static Integer procuraMenorValor(List<Integer> listaNumeros) {
+        if (listaNumeros == null || listaNumeros.size() == 0){
+            return null;
+        } else if (listaNumeros.size() == 1) {
+            return listaNumeros.get(0);
+        } else {
+            if(listaNumeros.get(0) < listaNumeros.get(1)) {
+                listaNumeros.set(1, listaNumeros.get(0));
+            }
+
+            return procuraMenorValor(listaNumeros.subList(1, listaNumeros.size()));
+        }
+    }
+
+    public static boolean isPalindromo(String string) {
+        if (string == null) {
+            return false;
+        } else if (string.length() == 1 || string.equals("")) {
+            return true;
+        } else {
+            String substring = string.substring(1, string.length() - 1);
+            char primeiraLetra = string.toLowerCase().charAt(0);
+            char ultimaLetra = string.toLowerCase().charAt(string.length() - 1);
+
+            return (primeiraLetra == ultimaLetra) && isPalindromo(substring);
+        }
+    }
 
 }
