@@ -1,38 +1,9 @@
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by 20142bsi0186 on 08/03/2017.
  */
 public class Recursividade {
-
-    public static void main(String[] args) {
-        List<Integer> primeiraListaElementos = new ArrayList<>();
-        List<Integer> segundaSistaElementos = new ArrayList<>();
-
-        Collections.addAll(primeiraListaElementos, 9, 7, 3, 28, 1015, 4, 53, 8, 6, 98, 2, 5, 25, 200);
-        Collections.addAll(segundaSistaElementos, 9, 7, 3, 28, 1015, 4, 53, 8, 6, 98, 2, 5, 25, 200);
-
-        System.out.println(raizQuadrada(48.0, 15));
-
-        System.out.println(pesquisaElemento(primeiraListaElementos, 2));
-
-        System.out.println(inverteString("Danilo de Oliveira - 09/03/2017 10:57"));
-
-        System.out.println(procuraMaiorValor(primeiraListaElementos));
-        System.out.println(procuraMenorValor(segundaSistaElementos));
-
-        System.out.println("Arara eh palindromo: " + isPalindromo("Arara"));
-        System.out.println("Carro eh palindromo: " + isPalindromo("Carro"));
-        System.out.println("o eh palindromo: " + isPalindromo("o"));
-        System.out.println("aa eh palindromo: " + isPalindromo("aa"));
-        System.out.println("aaababaaa eh palindromo: " + isPalindromo("aaababaaa"));
-
-
-
-
-    }
 
     public static int somaNumeros(List<Integer> listNumeros) {
         int primeiroNumero = listNumeros.get(0);
