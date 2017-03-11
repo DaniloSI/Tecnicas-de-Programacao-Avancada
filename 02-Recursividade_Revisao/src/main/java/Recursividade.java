@@ -137,4 +137,14 @@ public class Recursividade {
         }
     }
 
+    public static String toBinario(int decimal) {
+        if (decimal == 0) {
+            return "0";
+        } else if(decimal == 1) {
+            return "1";
+        } else {
+            return toBinario(decimal / 2) + Integer.toString(decimal % 2);
+        }
+    }
+
 }

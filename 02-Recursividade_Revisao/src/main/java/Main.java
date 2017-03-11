@@ -113,6 +113,16 @@ public class Main {
                 )
         );
 
+        testador.addTeste(
+                new Teste(
+                        "10. É possível construir uma função recursiva para converter um valor em base dez para\n" +
+                                "binário? Tente construir esta função a partir do algoritmo clássico de conversão decimal\n" +
+                                "binário.",
+                        "1111",
+                        Recursividade.toBinario(15)
+                )
+        );
+
 
         testador.executarTestes();
 
