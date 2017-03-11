@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -123,6 +124,20 @@ public class Main {
                 )
         );
 
+        testador.addTeste(
+                new Teste(
+                        "11. A quantidade total de permutações sobre um conjunto de n elementos é n! (n fatorial). Por\n" +
+                                "exemplo, para o conjunto formado por {a,b,c} teremos as seguintes permutações: {(a,b,c),\n" +
+                                "(a,c,b),(b,a,c),(b,c,a),(c,a,b),(c,b,a)}. É relativamente fácil observar que que podemos\n" +
+                                "descrever o conjunto de permutações como 'a' seguindo das permutações de 'b' e 'c'; 'b'\n" +
+                                "seguido das permutações de 'c' e 'a'; c seguido das permutações de 'a' e 'b'. Construa uma\n" +
+                                "função recursiva que retorne o conjunto de todas as permutações de um conjunto de entrada\n" +
+                                "de 3 elementos. Como generalizar a função para um conjunto de tamanho k elementos\n" +
+                                "quaisquer?",
+                        "[abc, bac, bca, acb, cab, cba]",
+                        Recursividade.permutacoes(Arrays.asList("abc")).toString()
+                )
+        );
 
         testador.executarTestes();
 

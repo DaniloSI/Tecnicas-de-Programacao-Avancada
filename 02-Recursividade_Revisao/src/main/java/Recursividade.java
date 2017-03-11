@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -145,6 +146,64 @@ public class Recursividade {
         } else {
             return toBinario(decimal / 2) + Integer.toString(decimal % 2);
         }
+    }
+
+    /**
+     * Metodo que transforma uma lista com uma unica string em uma lista de combinacoes com os caracteres da string.
+     * @param listString parametro recursivo.
+     * @return lista de combinacoes de uma string recebida como parametro.
+     */
+    public static List<String> permutacoes(List<String> listString) {
+
+        if (listString.get(0).length() < 1) {
+            return null;
+
+        } else if (listString.get(0).length() == 1) {
+            List<String> permutacoes = new ArrayList<>();
+
+            permutacoes.add(listString.get(0));
+            return permutacoes;
+
+        } else if (listString.get(0).length() == 2) {
+            // Caso base, em que a lista de strings possui strings com 2 caracteres.
+
+            List<String> permutacoes = new ArrayList<>();
+
+            String normal = listString.get(0);
+            String invertido = normal.substring(1, 2) + normal.substring(0, 1);
+
+            permutacoes.add(normal);
+            permutacoes.add(invertido);
+
+            return permutacoes;
+
+        } else {
+            List<String> novasCombinacoes = new ArrayList<>();
+
+            for (String combinacao : listString) {
+                char elementoPermutado = combinacao.charAt(0);
+
+                List<String> subCombinacoes = new ArrayList<>();
+                subCombinacoes.add(combinacao.substring(1));
+
+                subCombinacoes = permutacoes(subCombinacoes);
+
+                for (String stringCombinacao : subCombinacoes) {
+
+                    for (int i = 0 ; i <= stringCombinacao.length() ; i++) {
+                        String primeiraFatia = stringCombinacao.substring(0, i);
+                        String segundaFatia = stringCombinacao.substring(i);
+
+                        novasCombinacoes.add(primeiraFatia + elementoPermutado + segundaFatia);
+                    }
+
+                }
+
+            }
+
+            return novasCombinacoes;
+        }
+
     }
 
 }
