@@ -10,7 +10,7 @@ import java.util.List;
  * Created by Danilo de Oliveira on 22/03/2017.
  */
 public class Dicionario<TK, TV> {
-    private TabelaHash tabelaHash = new TabelaHash(25);
+    private TabelaHash tabelaHash = new TabelaHash(100);
 
     public void insert(TK key, TV value) {
         ItemTabelaHash<TK, TV> newItem = new ItemTabelaHash<>(key, value);

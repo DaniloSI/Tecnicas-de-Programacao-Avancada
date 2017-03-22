@@ -16,8 +16,6 @@ public class TabelaHash {
     public void add(ItemTabelaHash item) {
         int posicao = getPosicao(fHash((String) item.getKey()));
 
-        System.out.println(tabelaHashLista.length);
-
         if (tabelaHashLista[posicao] == null) {
             tabelaHashLista[posicao] = new LinkedList<>();
         }
