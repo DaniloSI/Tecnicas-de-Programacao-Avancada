@@ -49,7 +49,7 @@ public class Recursividade {
         double raizProxima = 0.0;
 
         // Encontra um valor cujo o quadrado eh o mais proximo possivel de n ou o proprio n.
-        while (((raizProxima + 1) * (raizProxima + 1)) <= n) {
+        while (((raizProxima + 1) * (raizProxima + 1)) <= n && n >= 1) {
             raizProxima += 1.0;
         }
 
