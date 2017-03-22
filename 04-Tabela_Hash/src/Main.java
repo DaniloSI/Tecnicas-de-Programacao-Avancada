@@ -1,7 +1,7 @@
 import dicionario.Dicionario;
 
 /**
- * Created by AEVO on 22/03/2017.
+ * Created by Danilo de Oliveira on 22/03/2017.
  */
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +12,7 @@ public class Main {
         dicionario.insert("Oliveira", 90);
 
         System.out.println(dicionario.keys());
+        System.out.println(dicionario.values());
 
         /*System.out.println(dicionario.find("Danilo"));
 

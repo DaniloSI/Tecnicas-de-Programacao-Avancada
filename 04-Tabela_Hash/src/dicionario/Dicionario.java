@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by AEVO on 22/03/2017.
+ * Created by Danilo de Oliveira on 22/03/2017.
  */
 public class Dicionario<TK, TV> {
     private TabelaHash tabelaHash = new TabelaHash(25);
@@ -54,6 +54,16 @@ public class Dicionario<TK, TV> {
         }
 
         return keys;
+    }
+
+    public List<TV> values() {
+        List<TV> values = new LinkedList<>();
+
+        for (ItemTabelaHash item: this.tabelaHash.getAll()) {
+            values.add((TV) item.getValue());
+        }
+
+        return values;
     }
 
 }

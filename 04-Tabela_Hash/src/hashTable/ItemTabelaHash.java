@@ -1,7 +1,7 @@
 package hashTable;
 
 /**
- * Created by AEVO on 22/03/2017.
+ * Created by Danilo de Oliveira on 22/03/2017.
  */
 public class ItemTabelaHash<TK, TV> {
     private TK key;
