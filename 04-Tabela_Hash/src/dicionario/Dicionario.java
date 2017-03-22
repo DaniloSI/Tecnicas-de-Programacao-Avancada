@@ -14,8 +14,23 @@ public class Dicionario<TK, TV> {
 
     public void insert(TK key, TV value) {
         ItemTabelaHash<TK, TV> newItem = new ItemTabelaHash<>(key, value);
+        List<ItemTabelaHash> itens = this.tabelaHash.get((String) key);
 
-        this.tabelaHash.add(newItem);
+        if (itens != null) {
+            for (ItemTabelaHash item : itens) {
+                if (item.getKey() == key) {
+                    item.setValue(value);
+                    newItem = null;
+                }
+            }
+
+            if (newItem != null) {
+                this.tabelaHash.add(newItem);
+            }
+        } else {
+            this.tabelaHash.add(newItem);
+        }
+
     }
 
     public TV find(TK key) {

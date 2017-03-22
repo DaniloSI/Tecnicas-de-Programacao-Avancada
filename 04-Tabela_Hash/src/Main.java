@@ -14,6 +14,11 @@ public class Main {
         System.out.println(dicionario.keys());
         System.out.println(dicionario.values());
 
+        dicionario.insert("Danilo", 296);
+
+        System.out.println(dicionario.keys());
+        System.out.println(dicionario.values());
+
         /*System.out.println(dicionario.find("Danilo"));
 
         dicionario.remove("Danilo");
