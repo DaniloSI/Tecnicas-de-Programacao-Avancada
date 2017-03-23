@@ -1,11 +1,12 @@
 import dicionario.Dicionario;
+import dicionario.DicionarioEnderecamentoAberto;
 
 /**
  * Created by Danilo de Oliveira on 22/03/2017.
  */
 public class Main {
     public static void main(String[] args) {
-        Dicionario<String, Integer> dicionario = new Dicionario<>();
+        DicionarioEnderecamentoAberto<String, Integer> dicionario = new DicionarioEnderecamentoAberto<>();
 
         dicionario.insert("Danilo", 50);
         dicionario.insert("de", 75);

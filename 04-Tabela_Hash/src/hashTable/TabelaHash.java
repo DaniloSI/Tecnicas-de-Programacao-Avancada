@@ -14,7 +14,7 @@ public class TabelaHash {
     }
 
     public void add(ItemTabelaHash item) {
-        int posicao = getPosicao(fHash((String) item.getKey()));
+        int posicao = fHash((String) item.getKey());
 
         if (tabelaHashLista[posicao] == null) {
             tabelaHashLista[posicao] = new LinkedList<>();
@@ -24,7 +24,7 @@ public class TabelaHash {
     }
 
     public List<ItemTabelaHash> get(String key) {
-        int posicao = getPosicao(fHash(key));
+        int posicao = fHash(key);
         return tabelaHashLista[posicao];
     }
 
@@ -50,10 +50,6 @@ public class TabelaHash {
         return itens;
     }
 
-    private int getPosicao(int hash) {
-        return tabelaHashLista.length / hash;
-    }
-
     private int fHash(String key) {
         int base = 2;
         int expoente = 0;
@@ -65,6 +61,6 @@ public class TabelaHash {
             expoente++;
         }
 
-        return hash;
+        return tabelaHashLista.length / hash;
     }
 }
