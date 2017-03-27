@@ -1,8 +1,5 @@
 package hashTable;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * Created by Danilo de Oliveira on 22/03/2017.
  */
@@ -19,6 +16,10 @@ public class TabelaHashEnderecamentoAberto {
         if (quantidadeElementos < this.tabelaHashLista.length) {
             int posicao = fHash((String) item.getKey());
 
+            while (this.tabelaHashLista[posicao] != null) {
+                posicao = (posicao + 1) % this.tabelaHashLista.length;
+            }
+
             tabelaHashLista[posicao] = item;
 
             quantidadeElementos++;
@@ -27,25 +28,37 @@ public class TabelaHashEnderecamentoAberto {
         }
     }
 
-    public ItemTabelaHash get(String key) {
-        int posicao = fHash(key);
-        return tabelaHashLista[posicao];
+    public ItemTabelaHash get(Object key) {
+        int posicao = fHash((String) key);
+
+        for (int i = 0; i < tabelaHashLista.length && tabelaHashLista[posicao] != null; i++) {
+            if (tabelaHashLista[posicao].getKey().equals(key)) {
+                return tabelaHashLista[posicao];
+            }
+            posicao = (posicao + 1) % tabelaHashLista.length;
+        }
+
+        throw new IllegalArgumentException("Chave não armazenada.");
     }
 
     public int size() {
-        return this.tabelaHashLista.length;
+        return this.quantidadeElementos;
     }
 
     public ItemTabelaHash[] getAll() {
         return this.tabelaHashLista;
     }
 
-    public int indexOf(String key) {
-        return fHash(key);
-    }
+    public void delete(Object key) {
+        int posicao = fHash((String) key);
 
-    public void remove(int index) {
-        this.tabelaHashLista[index] = null;
+        for (int i = 0; i < tabelaHashLista.length && tabelaHashLista[posicao] != null; i++) {
+            if (tabelaHashLista[posicao].getKey() == key) {
+                tabelaHashLista[posicao] = null;
+            } else {
+                posicao = (posicao + 1) % tabelaHashLista.length;
+            }
+        }
     }
 
     private int fHash(String key) {
@@ -55,16 +68,10 @@ public class TabelaHashEnderecamentoAberto {
 
         for (char caracter : key.toCharArray()) {
             hash += caracter * (base^expoente);
-
             expoente++;
         }
 
         hash = this.tabelaHashLista.length / hash;
-
-        while (this.tabelaHashLista[hash] != null) {
-            hash = (hash + 1) % this.tabelaHashLista.length;
-        }
-
 
         return hash;
     }

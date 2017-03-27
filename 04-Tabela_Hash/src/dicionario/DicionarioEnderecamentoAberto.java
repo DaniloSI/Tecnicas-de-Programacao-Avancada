@@ -13,61 +13,21 @@ public class DicionarioEnderecamentoAberto<TK, TV> {
     private TabelaHashEnderecamentoAberto tabelaHash = new TabelaHashEnderecamentoAberto(100);
 
     public void insert(TK key, TV value) {
-        ItemTabelaHash itemFound = getItemTabelaHash(key);
-
-        if (itemFound == null) {
-            ItemTabelaHash<TK, TV> newItem = new ItemTabelaHash<>(key, value);
-
-            tabelaHash.add(newItem);
-        } else {
+        try {
+            ItemTabelaHash<TK, TV> itemFound = tabelaHash.get(key);
             itemFound.setValue(value);
+        } catch (IllegalArgumentException e) {
+            ItemTabelaHash<TK, TV> newItem = new ItemTabelaHash<>(key, value);
+            tabelaHash.add(newItem);
         }
-
     }
 
     public TV find(TK key) {
-        return (TV) getItemTabelaHash(key).getValue();
-    }
-
-    private ItemTabelaHash getItemTabelaHash(TK key) {
-        ItemTabelaHash item = this.tabelaHash.get((String) key);
-
-        if (item == null) {
-            return null;
-        } else {
-            if (item.getKey() != key) {
-                ItemTabelaHash[] itens = tabelaHash.getAll();
-                int index = tabelaHash.indexOf((String) key);
-
-                for (int i = 0 ; i < tabelaHash.size() ; i++) {
-                    if (itens[index].getKey() == key) {
-                        return itens[index];
-                    }
-
-                    index = (index + 1) % tabelaHash.size();
-                }
-
-                return null;
-
-            } else {
-                return item;
-            }
-        }
+        return (TV) tabelaHash.get(key).getValue();
     }
 
     public void remove(TK key) {
-        ItemTabelaHash[] itens = this.tabelaHash.getAll();
-        int index = this.tabelaHash.indexOf((String) key);
-
-        for (int i = 0 ; i < this.tabelaHash.size() && itens[index] != null ; i++) {
-            if (itens[index].getKey() == key) {
-                this.tabelaHash.remove(index);
-                itens[index] = null;
-            } else {
-                index = (index + 1) % tabelaHash.size();
-            }
-
-        }
+        tabelaHash.delete(key);
     }
 
     public int size() {
