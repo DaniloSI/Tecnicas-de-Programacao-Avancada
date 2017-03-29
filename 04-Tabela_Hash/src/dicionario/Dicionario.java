@@ -14,47 +14,25 @@ public class Dicionario<TK, TV> {
 
     public void insert(TK key, TV value) {
         ItemTabelaHash<TK, TV> newItem = new ItemTabelaHash<>(key, value);
-        List<ItemTabelaHash> itens = this.tabelaHash.get((String) key);
-
-        if (itens != null) {
-            for (ItemTabelaHash item : itens) {
-                if (item.getKey() == key) {
-                    item.setValue(value);
-                    newItem = null;
-                }
-            }
-
-            if (newItem != null) {
-                this.tabelaHash.add(newItem);
-            }
-        } else {
-            this.tabelaHash.add(newItem);
-        }
-
+        tabelaHash.add(newItem);
     }
 
     public TV find(TK key) {
-        for (ItemTabelaHash item : this.tabelaHash.get((String) key)) {
-            if (item.getKey() == key) {
-                return (TV) item.getValue();
-            }
-        }
+        ItemTabelaHash item = tabelaHash.get(key);
 
-        throw new IllegalArgumentException("Chave não encontrada");
+        if (item != null) {
+            return (TV) item.getValue();
+        } else {
+            throw new IllegalArgumentException("Chave não encontrada");
+        }
     }
 
     public void remove(TK key) {
-        List<ItemTabelaHash> itens = this.tabelaHash.get((String) key);
-
-        for (ItemTabelaHash item: itens) {
-            if (item.getKey() == key) {
-                itens.remove(item);
-            }
-        }
+        tabelaHash.delete(key);
     }
 
     public int size() {
-        return this.tabelaHash.size();
+        return tabelaHash.size();
     }
 
     public boolean isEmpty() {
@@ -62,13 +40,13 @@ public class Dicionario<TK, TV> {
     }
 
     public List<TK> keys() {
-        List<TK> keys = new LinkedList<>();
+        List<TK> listKeys = new LinkedList<>();
 
-        for (ItemTabelaHash item: this.tabelaHash.getAll()) {
-            keys.add((TK) item.getKey());
+        for(ItemTabelaHash item: tabelaHash.getAll()) {
+            listKeys.add((TK) item.getKey());
         }
 
-        return keys;
+        return listKeys;
     }
 
     public List<TV> values() {
@@ -79,6 +57,10 @@ public class Dicionario<TK, TV> {
         }
 
         return values;
+    }
+
+    public String getGraficoArmazenamento() {
+        return tabelaHash.getGrafrico();
     }
 
 }

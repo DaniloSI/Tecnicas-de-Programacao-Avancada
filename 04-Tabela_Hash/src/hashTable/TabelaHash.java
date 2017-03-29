@@ -13,19 +13,60 @@ public class TabelaHash {
         this.tabelaHashLista = new LinkedList[size];
     }
 
-    public void add(ItemTabelaHash item) {
-        int posicao = fHash((String) item.getKey());
+    public void add(ItemTabelaHash itemAdd) {
+        int posicao = fHash((String) itemAdd.getKey());
+        ItemTabelaHash itemExistente;
 
         if (tabelaHashLista[posicao] == null) {
             tabelaHashLista[posicao] = new LinkedList<>();
-        }
+            tabelaHashLista[posicao].add(itemAdd);
 
-        tabelaHashLista[posicao].add(item);
+        } else {
+            itemExistente = getByKey(itemAdd.getKey(), posicao);
+
+            if (itemExistente != null) {
+                itemExistente.setValue(itemAdd.getValue());
+            } else {
+                tabelaHashLista[posicao].add(itemAdd);
+            }
+        }
     }
 
-    public List<ItemTabelaHash> get(String key) {
-        int posicao = fHash(key);
-        return tabelaHashLista[posicao];
+    private ItemTabelaHash getByKey(Object key, Integer posicao) {
+        if (posicao == null) {
+            posicao = fHash((String) key);
+        }
+
+        for(ItemTabelaHash item: tabelaHashLista[posicao]) {
+            if (item.getKey().equals(key)) {
+                return item;
+            }
+        }
+
+        return null;
+    }
+
+    public ItemTabelaHash get(Object key) {
+        int posicao = fHash((String) key);
+
+        for(ItemTabelaHash item: tabelaHashLista[posicao]) {
+            if (item.getKey().equals(key)) {
+                return item;
+            }
+        }
+
+        return null;
+    }
+
+    public void delete(Object key) {
+        int posicao = fHash((String) key);
+
+
+        for(Object item: tabelaHashLista[posicao].toArray()) {
+            if (((ItemTabelaHash) item).getKey().equals(key)) {
+                tabelaHashLista[posicao].remove(item);
+            }
+        }
     }
 
     public int size() {
@@ -61,6 +102,19 @@ public class TabelaHash {
             expoente++;
         }
 
-        return tabelaHashLista.length / hash;
+        return hash % tabelaHashLista.length;
+    }
+
+    public String getGrafrico() {
+        String grafico = "posicao,quantidade de elementos\n";
+
+
+        for (int i = 0 ; i < tabelaHashLista.length ; i++) {
+            if (tabelaHashLista[i] != null) {
+                grafico += i + "," + tabelaHashLista[i].size() + "\n";
+            }
+        }
+
+        return grafico;
     }
 }
