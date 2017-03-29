@@ -2,6 +2,7 @@ package dicionario;
 
 import hashTable.ItemTabelaHash;
 import hashTable.TabelaHash;
+import hashTable.TipoFuncaoHash;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +11,15 @@ import java.util.List;
  * Created by Danilo de Oliveira on 22/03/2017.
  */
 public class Dicionario<TK, TV> {
-    private TabelaHash tabelaHash = new TabelaHash(100);
+    private TabelaHash tabelaHash;
+
+    public Dicionario() {
+        tabelaHash = new TabelaHash(100, TipoFuncaoHash.POLINOMIAL);
+    }
+
+    public Dicionario(TipoFuncaoHash tipoFuncaoHash) {
+        tabelaHash = new TabelaHash(100, tipoFuncaoHash);
+    }
 
     public void insert(TK key, TV value) {
         ItemTabelaHash<TK, TV> newItem = new ItemTabelaHash<>(key, value);

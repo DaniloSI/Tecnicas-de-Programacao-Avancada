@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         AgendaTelefonica agendaTelefonica = new AgendaTelefonica();
         File fileToRead = new File("src/resources" + File.separatorChar + "agenda.csv");
-        File fileToWrite = new File("src/resources/graficoArmazenamento.csv");
+        File fileToWrite = new File("src/resources/graficoArmazenamentoPolinomial.csv");
         FileReader fileReader = new FileReader(fileToRead);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         FileWriter fileWriter = new FileWriter(fileToWrite);

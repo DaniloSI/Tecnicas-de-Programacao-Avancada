@@ -1,5 +1,7 @@
 package hashTable;
 
+import javafx.scene.control.Tab;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,9 +10,11 @@ import java.util.List;
  */
 public class TabelaHash {
     private List<ItemTabelaHash>[] tabelaHashLista;
+    private TipoFuncaoHash tipoFuncaoHash;
 
-    public TabelaHash(int size) {
+    public TabelaHash(int size, TipoFuncaoHash tipoFuncaoHash) {
         this.tabelaHashLista = new LinkedList[size];
+        this.tipoFuncaoHash = tipoFuncaoHash;
     }
 
     public void add(ItemTabelaHash itemAdd) {
@@ -92,14 +96,21 @@ public class TabelaHash {
     }
 
     private int fHash(String key) {
-        int base = 2;
-        int expoente = 0;
         int hash = 0;
 
-        for (char caracter : key.toCharArray()) {
-            hash += caracter * (base^expoente);
+        if (tipoFuncaoHash == TipoFuncaoHash.POLINOMIAL) {
+            int base = 2;
+            int expoente = 0;
 
-            expoente++;
+            for (char caracter : key.toCharArray()) {
+                hash += caracter * (base^expoente);
+
+                expoente++;
+            }
+        } else {
+            for (char caracter : key.toCharArray()) {
+                hash += caracter;
+            }
         }
 
         return hash % tabelaHashLista.length;
