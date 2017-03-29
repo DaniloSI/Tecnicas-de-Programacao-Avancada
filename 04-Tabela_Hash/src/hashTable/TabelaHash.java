@@ -116,7 +116,7 @@ public class TabelaHash {
         return hash % tabelaHashLista.length;
     }
 
-    public String getGrafrico() {
+    public String getCsv() {
         String grafico = "posicao,quantidade de elementos\n";
 
 

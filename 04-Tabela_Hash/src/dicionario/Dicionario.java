@@ -68,8 +68,8 @@ public class Dicionario<TK, TV> {
         return values;
     }
 
-    public String getGraficoArmazenamento() {
-        return tabelaHash.getGrafrico();
+    public String getCsvArmazenamento() {
+        return tabelaHash.getCsv();
     }
 
 }
