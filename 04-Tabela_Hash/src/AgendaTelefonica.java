@@ -5,7 +5,7 @@ import hashTable.TipoFuncaoHash;
  * Created by danilo on 28/03/17.
  */
 public class AgendaTelefonica {
-    private static final TipoFuncaoHash tipoFuncaoHash = TipoFuncaoHash.NAO_POLINOMIAL;
+    private static final TipoFuncaoHash tipoFuncaoHash = TipoFuncaoHash.POLINOMIAL;
     private Dicionario<String, String> agendaDicionario;
 
     public AgendaTelefonica() {

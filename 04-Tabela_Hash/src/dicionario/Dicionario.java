@@ -11,14 +11,23 @@ import java.util.List;
  * Created by Danilo de Oliveira on 22/03/2017.
  */
 public class Dicionario<TK, TV> {
+
     private TabelaHash tabelaHash;
+    private TipoFuncaoHash tipoFuncaoHash;
+    private static final int sizeTabelaHash = 100;
 
     public Dicionario() {
-        tabelaHash = new TabelaHash(100, TipoFuncaoHash.POLINOMIAL);
+        tabelaHash = new TabelaHash(sizeTabelaHash, this::funcaoHashPolinomial);
     }
 
     public Dicionario(TipoFuncaoHash tipoFuncaoHash) {
-        tabelaHash = new TabelaHash(100, tipoFuncaoHash);
+
+        if (tipoFuncaoHash == TipoFuncaoHash.POLINOMIAL) {
+            tabelaHash = new TabelaHash(sizeTabelaHash, this::funcaoHashPolinomial);
+        } else {
+            tabelaHash = new TabelaHash(sizeTabelaHash, this::funcaoHashNaoPolinomial);
+        }
+
     }
 
     public void insert(TK key, TV value) {
@@ -70,6 +79,30 @@ public class Dicionario<TK, TV> {
 
     public String getCsvArmazenamento() {
         return tabelaHash.getCsv();
+    }
+
+    private int funcaoHashPolinomial(Object key) {
+        int hash = 0;
+        int base = 2;
+        int expoente = 0;
+
+        for (char caracter : ((String) key).toCharArray()) {
+            hash += caracter * (base^expoente);
+
+            expoente++;
+        }
+
+        return hash % sizeTabelaHash;
+    }
+
+    private int funcaoHashNaoPolinomial(Object key) {
+        int hash = 0;
+
+        for (char caracter : ((String) key).toCharArray()) {
+            hash += caracter;
+        }
+
+        return hash % sizeTabelaHash;
     }
 
 }

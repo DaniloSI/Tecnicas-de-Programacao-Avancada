@@ -1,5 +1,6 @@
 import dicionario.Dicionario;
 import dicionario.DicionarioEnderecamentoAberto;
+import hashTable.TipoFuncaoHash;
 
 import java.io.*;
 
@@ -10,12 +11,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
         AgendaTelefonica agendaTelefonica = new AgendaTelefonica();
         File fileToRead = new File("src/resources" + File.separatorChar + "agenda.csv");
-        File fileToWrite = new File("src/resources/csvArmazenamentoNaoPolinomial.csv");
+        File fileToWrite = new File("src/resources/csvArmazenamentoPolinomial.csv");
         FileReader fileReader = new FileReader(fileToRead);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         FileWriter fileWriter = new FileWriter(fileToWrite);
-        /*BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);*/
-
 
         String line;
         while ((line = bufferedReader.readLine()) != null) {
@@ -30,7 +29,7 @@ public class Main {
 
 
 
-        /*Dicionario<String, Integer> dicionario = new Dicionario<>();
+        /*Dicionario<String, Integer> dicionario = new Dicionario<>(TipoFuncaoHash.POLINOMIAL);
 
         dicionario.insert("Danilo", 50);
         dicionario.insert("de", 75);
@@ -51,7 +50,7 @@ public class Main {
         System.out.println(dicionario.keys());
         System.out.println(dicionario.values());
 
-        System.out.println(dicionario.getGraficoArmazenamento());*/
+        System.out.println(dicionario.getCsvArmazenamento());*/
 
         /*System.out.println(dicionario.find("Danilo"));
 
