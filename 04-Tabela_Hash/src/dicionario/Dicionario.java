@@ -16,16 +16,17 @@ public class Dicionario<TK, TV> {
     private TipoFuncaoHash tipoFuncaoHash;
     private static final int sizeTabelaHash = 100;
 
-    public Dicionario() {
-        tabelaHash = new TabelaHash(sizeTabelaHash, this::funcaoHashPolinomial);
-    }
-
     public Dicionario(TipoFuncaoHash tipoFuncaoHash) {
 
-        if (tipoFuncaoHash == TipoFuncaoHash.POLINOMIAL) {
-            tabelaHash = new TabelaHash(sizeTabelaHash, this::funcaoHashPolinomial);
-        } else {
-            tabelaHash = new TabelaHash(sizeTabelaHash, this::funcaoHashNaoPolinomial);
+        switch (tipoFuncaoHash) {
+            case POLINOMIAL:
+                tabelaHash = new TabelaHash(sizeTabelaHash, this::funcaoHashPolinomial);
+                break;
+            case NAO_POLINOMIAL:
+                tabelaHash = new TabelaHash(sizeTabelaHash, this::funcaoHashNaoPolinomial);
+                break;
+            default:
+                throw new IllegalArgumentException("Tipo de função Hash inválida.");
         }
 
     }

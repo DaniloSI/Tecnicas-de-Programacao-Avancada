@@ -1,7 +1,3 @@
-import dicionario.Dicionario;
-import dicionario.DicionarioEnderecamentoAberto;
-import hashTable.TipoFuncaoHash;
-
 import java.io.*;
 
 /**
