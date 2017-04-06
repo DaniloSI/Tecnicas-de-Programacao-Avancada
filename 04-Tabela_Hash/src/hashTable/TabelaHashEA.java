@@ -29,11 +29,8 @@ public class TabelaHashEA extends HashTable {
 
         } else {
 
-            do {
-
-                position = (position + 1) % tabelaHashLinearProbing.length;
-
-            } while (tabelaHashLinearProbing[position] != null);
+            do position = (position + 1) % tabelaHashLinearProbing.length;
+            while (tabelaHashLinearProbing[position] != null);
 
             tabelaHashLinearProbing[position] = itemAdd;
             quantidadeElementos++;
