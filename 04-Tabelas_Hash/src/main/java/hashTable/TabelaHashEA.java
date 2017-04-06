@@ -9,28 +9,29 @@ public class TabelaHashEA extends HashTable {
     private int quantidadeElementos;
     private FHash fHash;
 
-    public TabelaHashEA(int size, FHash fHash) {
-        this.tabelaHashLinearProbing = new ItemTabelaHash[size];
+    public TabelaHashEA(FHash fHash) {
+        this.tabelaHashLinearProbing = new ItemTabelaHash[100];
         this.quantidadeElementos = 0;
         this.fHash = fHash;
     }
 
     public void insert(ItemTabelaHash itemAdd) {
-        int position = fHash.calculaHash(itemAdd.getKey());
+        int position = fHash.calculaHash(itemAdd.getKey(), tabelaHashLinearProbing.length);
 
-        if (quantidadeElementos == tabelaHashLinearProbing.length) {
-
-            throw new IllegalArgumentException("Tabela hash cheia.");
-
-        } else if (tabelaHashLinearProbing[position] != null &&
+        if (tabelaHashLinearProbing[position] != null &&
                 tabelaHashLinearProbing[position].getKey().equals(itemAdd.getKey())) {
 
             tabelaHashLinearProbing[position].setValue(itemAdd.getValue());
 
         } else {
 
-            do position = (position + 1) % tabelaHashLinearProbing.length;
-            while (tabelaHashLinearProbing[position] != null);
+            if (quantidadeElementos >= (tabelaHashLinearProbing.length * 0.8)) {
+                increaseSizeTabelaHash();
+                position = fHash.calculaHash(itemAdd.getKey(), tabelaHashLinearProbing.length);
+            }
+
+            while (tabelaHashLinearProbing[position] != null)
+                position = (position + 1) % tabelaHashLinearProbing.length;
 
             tabelaHashLinearProbing[position] = itemAdd;
             quantidadeElementos++;
@@ -39,8 +40,20 @@ public class TabelaHashEA extends HashTable {
 
     }
 
+    private void increaseSizeTabelaHash() {
+        ItemTabelaHash[] antigaTabelaHash = tabelaHashLinearProbing;
+        tabelaHashLinearProbing = new ItemTabelaHash[tabelaHashLinearProbing.length * 2];
+
+        for (ItemTabelaHash item: antigaTabelaHash) {
+            if (item != null) {
+                this.insert(item);
+            }
+        }
+
+    }
+
     public ItemTabelaHash find(Object key) {
-        int position = fHash.calculaHash(key);
+        int position = fHash.calculaHash(key, tabelaHashLinearProbing.length);
 
         while (tabelaHashLinearProbing[position] != null) {
 
@@ -55,7 +68,7 @@ public class TabelaHashEA extends HashTable {
     }
 
     public ItemTabelaHash remove(Object key) {
-        int position = fHash.calculaHash(key);
+        int position = fHash.calculaHash(key, tabelaHashLinearProbing.length);
 
         while (tabelaHashLinearProbing[position] != null) {
 
@@ -111,8 +124,7 @@ public class TabelaHashEA extends HashTable {
         return elements;
     }
 
-    @Override
-    String getCsv() {
+    public String getCsv() {
         String csv = "posicao,quantidade de elementos\n";
 
 

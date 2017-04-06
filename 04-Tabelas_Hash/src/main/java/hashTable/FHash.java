@@ -5,6 +5,6 @@ package hashTable;
  */
 public interface FHash {
 
-    int calculaHash(Object key);
+    int calculaHash(Object key, int relativeValue);
 
 }

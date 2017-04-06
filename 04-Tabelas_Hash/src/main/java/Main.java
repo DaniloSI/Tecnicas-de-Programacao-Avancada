@@ -6,8 +6,8 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         AgendaTelefonica agendaTelefonica = new AgendaTelefonica();
-        File fileToRead = new File("src/resources" + File.separatorChar + "agenda.csv");
-        File fileToWrite = new File("src/resources/csvArmazenamentoNaoPolinomial.csv");
+        File fileToRead = new File(Main.class.getClassLoader().getResource("agenda.csv").getFile());
+        File fileToWrite = new File("csvArmazenamentoNaoPolinomial.csv");
         FileReader fileReader = new FileReader(fileToRead);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         FileWriter fileWriter = new FileWriter(fileToWrite);

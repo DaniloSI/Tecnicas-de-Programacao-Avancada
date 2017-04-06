@@ -18,7 +18,7 @@ public class TabelaHash extends HashTable {
     }
 
     public void insert(ItemTabelaHash itemAdd) {
-        int posicao = funcaoHash.calculaHash(itemAdd.getKey());
+        int posicao = funcaoHash.calculaHash(itemAdd.getKey(), tabelaHashLista.length);
 
         if (tabelaHashLista[posicao] == null) {
             tabelaHashLista[posicao] = new LinkedList<>();
@@ -39,7 +39,7 @@ public class TabelaHash extends HashTable {
 
     private ItemTabelaHash getByKey(Object key, Integer posicao) {
         if (posicao == null) {
-            posicao = funcaoHash.calculaHash(key);
+            posicao = funcaoHash.calculaHash(key, tabelaHashLista.length);
         }
 
         for(ItemTabelaHash item: tabelaHashLista[posicao]) {
@@ -52,7 +52,7 @@ public class TabelaHash extends HashTable {
     }
 
     public ItemTabelaHash find(Object key) {
-        int posicao = funcaoHash.calculaHash(key);
+        int posicao = funcaoHash.calculaHash(key, tabelaHashLista.length);
 
         for(ItemTabelaHash item: tabelaHashLista[posicao]) {
             if (item.getKey().equals(key)) {
@@ -64,7 +64,7 @@ public class TabelaHash extends HashTable {
     }
 
     public ItemTabelaHash remove(Object key) {
-        int posicao = funcaoHash.calculaHash(key);
+        int posicao = funcaoHash.calculaHash(key, tabelaHashLista.length);
 
         for(ItemTabelaHash item: tabelaHashLista[posicao]) {
             Object itemKey = item.getKey();
