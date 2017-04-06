@@ -1,85 +1,74 @@
-package dicionario;
-
-import hashTable.ItemTabelaHash;
-import hashTable.TabelaHash;
-import hashTable.TipoFuncaoHash;
-
-import java.util.LinkedList;
-import java.util.List;
+package hashTable;
 
 /**
  * Created by Danilo de Oliveira on 22/03/2017.
  */
 public class Dicionario<TK, TV> {
 
-    private TabelaHash tabelaHash;
-    private TipoFuncaoHash tipoFuncaoHash;
-    private static final int sizeTabelaHash = 100;
+    private HashTable hashTable;
+    public static ItemTabelaHash NO_SUCH_KEY;
+    private static final int sizeTabelaHash = 1000;
 
     public Dicionario(TipoFuncaoHash tipoFuncaoHash) {
 
         switch (tipoFuncaoHash) {
             case POLINOMIAL:
-                tabelaHash = new TabelaHash(sizeTabelaHash, this::funcaoHashPolinomial);
+                hashTable = new TabelaHashEA(sizeTabelaHash, this::funcaoHashPolinomial);
                 break;
             case NAO_POLINOMIAL:
-                tabelaHash = new TabelaHash(sizeTabelaHash, this::funcaoHashNaoPolinomial);
+                hashTable = new TabelaHashEA(sizeTabelaHash, this::funcaoHashNaoPolinomial);
                 break;
             default:
                 throw new IllegalArgumentException("Tipo de função Hash inválida.");
         }
 
+        NO_SUCH_KEY = HashTable.NO_SUCH_KEY;
+
     }
 
     public void insert(TK key, TV value) {
         ItemTabelaHash<TK, TV> newItem = new ItemTabelaHash<>(key, value);
-        tabelaHash.add(newItem);
+        hashTable.insert(newItem);
     }
 
-    public TV find(TK key) {
-        ItemTabelaHash item = tabelaHash.get(key);
+    public TV find(TK key) throws Exception {
+        ItemTabelaHash item = hashTable.find(key);
 
-        if (item != null) {
-            return (TV) item.getValue();
+        if (item == HashTable.NO_SUCH_KEY) {
+
+            throw new Exception("Chave inválida.");
+
         } else {
-            throw new IllegalArgumentException("Chave não encontrada");
+
+            return (TV) item.getValue();
+
         }
     }
 
     public void remove(TK key) {
-        tabelaHash.delete(key);
+        hashTable.remove(key);
     }
 
     public int size() {
-        return tabelaHash.size();
+        return hashTable.size();
     }
 
     public boolean isEmpty() {
         return this.size() == 0;
     }
 
-    public List<TK> keys() {
-        List<TK> listKeys = new LinkedList<>();
+    public TK[] keys() {
 
-        for(ItemTabelaHash item: tabelaHash.getAll()) {
-            listKeys.add((TK) item.getKey());
-        }
-
-        return listKeys;
+        return (TK[]) hashTable.keys();
     }
 
-    public List<TV> values() {
-        List<TV> values = new LinkedList<>();
+    public TV[] elements() {
 
-        for (ItemTabelaHash item: this.tabelaHash.getAll()) {
-            values.add((TV) item.getValue());
-        }
-
-        return values;
+        return (TV[]) hashTable.elements();
     }
 
     public String getCsvArmazenamento() {
-        return tabelaHash.getCsv();
+        return hashTable.getCsv();
     }
 
     private int funcaoHashPolinomial(Object key) {

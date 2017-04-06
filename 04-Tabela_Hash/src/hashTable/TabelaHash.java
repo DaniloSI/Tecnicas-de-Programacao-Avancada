@@ -6,9 +6,7 @@ import java.util.List;
 /**
  * Created by Danilo de Oliveira on 22/03/2017.
  */
-public class TabelaHash {
-
-    public static final ItemTabelaHash NO_SUCH_KEY = new ItemTabelaHash(null, null);
+public class TabelaHash extends HashTable {
 
     private List<ItemTabelaHash>[] tabelaHashLista;
     private FHash funcaoHash;
@@ -19,7 +17,7 @@ public class TabelaHash {
         this.funcaoHash = funcaoHash;
     }
 
-    public void add(ItemTabelaHash itemAdd) {
+    public void insert(ItemTabelaHash itemAdd) {
         int posicao = funcaoHash.calculaHash(itemAdd.getKey());
 
         if (tabelaHashLista[posicao] == null) {
@@ -53,7 +51,7 @@ public class TabelaHash {
         return NO_SUCH_KEY;
     }
 
-    public ItemTabelaHash get(Object key) {
+    public ItemTabelaHash find(Object key) {
         int posicao = funcaoHash.calculaHash(key);
 
         for(ItemTabelaHash item: tabelaHashLista[posicao]) {
@@ -65,32 +63,61 @@ public class TabelaHash {
         return NO_SUCH_KEY;
     }
 
-    public void delete(Object key) {
+    public ItemTabelaHash remove(Object key) {
         int posicao = funcaoHash.calculaHash(key);
 
+        for(ItemTabelaHash item: tabelaHashLista[posicao]) {
+            Object itemKey = item.getKey();
 
-        for(Object item: tabelaHashLista[posicao].toArray()) {
-            if (((ItemTabelaHash) item).getKey().equals(key)) {
+            if (itemKey.equals(key)) {
                 tabelaHashLista[posicao].remove(item);
                 quantidadeElementos--;
+
+                return item;
             }
         }
+
+        return NO_SUCH_KEY;
     }
 
     public int size() {
         return quantidadeElementos;
     }
 
-    public List<ItemTabelaHash> getAll() {
-        List<ItemTabelaHash> itens = new LinkedList<>();
+    public boolean isEmpty() {
+        return quantidadeElementos == 0;
+    }
+
+    public Object[] keys() {
+        Object[] keys = new Object[quantidadeElementos];
+        int position = 0;
 
         for (List<ItemTabelaHash> listItens: this.tabelaHashLista) {
-            if (listItens != null) {
-                itens.addAll(listItens);
+            for (ItemTabelaHash item: listItens) {
+                if (item != null) {
+                    keys[position] = item.getKey();
+                    position++;
+                }
             }
         }
 
-        return itens;
+        return keys;
+    }
+
+    public Object[] elements() {
+        Object[] elements = new Object[quantidadeElementos];
+        int position = 0;
+
+        for (List<ItemTabelaHash> listItens: this.tabelaHashLista) {
+            for (ItemTabelaHash item: listItens) {
+                if (item != null) {
+                    elements[position] = item.getValue();
+                    position++;
+                }
+            }
+        }
+
+        return elements;
     }
 
     public String getCsv() {
