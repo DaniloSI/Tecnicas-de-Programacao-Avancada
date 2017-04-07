@@ -93,10 +93,12 @@ public class TabelaHash extends HashTable {
         int position = 0;
 
         for (List<ItemTabelaHash> listItens: this.tabelaHashLista) {
-            for (ItemTabelaHash item: listItens) {
-                if (item != null) {
-                    keys[position] = item.getKey();
-                    position++;
+            if (listItens != null) {
+                for (ItemTabelaHash item: listItens) {
+                    if (item != null) {
+                        keys[position] = item.getKey();
+                        position++;
+                    }
                 }
             }
         }
@@ -109,10 +111,12 @@ public class TabelaHash extends HashTable {
         int position = 0;
 
         for (List<ItemTabelaHash> listItens: this.tabelaHashLista) {
-            for (ItemTabelaHash item: listItens) {
-                if (item != null) {
-                    elements[position] = item.getValue();
-                    position++;
+            if (listItens != null) {
+                for (ItemTabelaHash item: listItens) {
+                    if (item != null) {
+                        elements[position] = item.getValue();
+                        position++;
+                    }
                 }
             }
         }
