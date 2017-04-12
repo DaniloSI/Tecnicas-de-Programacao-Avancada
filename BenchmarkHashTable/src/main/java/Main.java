@@ -4,10 +4,14 @@ import java.io.*;
  * Created by Danilo de Oliveira on 22/03/2017.
  */
 public class Main {
+
+    private static final String fileAgenda = "agenda.csv";
+    private static final String fileOutput = "csvArmazenamentoNaoPolinomial.csv";
+
     public static void main(String[] args) throws IOException {
         AgendaTelefonica agendaTelefonica = new AgendaTelefonica();
-        File fileToRead = new File(Main.class.getClassLoader().getResource("agenda.csv").getFile());
-        File fileToWrite = new File("csvArmazenamentoNaoPolinomial.csv");
+        File fileToRead = new File(Main.class.getClassLoader().getResource(fileAgenda).getFile());
+        File fileToWrite = new File(Main.class.getClassLoader() + fileOutput);
         FileReader fileReader = new FileReader(fileToRead);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         FileWriter fileWriter = new FileWriter(fileToWrite);
