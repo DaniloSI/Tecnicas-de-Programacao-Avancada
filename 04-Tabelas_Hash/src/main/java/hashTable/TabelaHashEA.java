@@ -15,6 +15,23 @@ public class TabelaHashEA extends HashTable {
         this.fHash = fHash;
     }
 
+    public TabelaHashEA() {
+        this.tabelaHashLinearProbing = new ItemTabelaHash[100];
+        this.fHash = (Object key, int relativeValue) -> {
+            int hash = 0;
+            int base = 2;
+            int expoente = 0;
+
+            for (char caracter : ((String) key).toCharArray()) {
+                hash += caracter * (base^expoente);
+
+                expoente++;
+            }
+
+            return hash % relativeValue;
+        };
+    }
+
     public void insert(ItemTabelaHash itemAdd) {
         int position = fHash.calculaHash(itemAdd.getKey(), tabelaHashLinearProbing.length);
 
