@@ -1,3 +1,5 @@
+import cep.CEPRepositorio;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -12,6 +14,6 @@ public class Main {
         File fileCEP = new File(classLoader.getResource("vix-ruas-ceps.txt").getFile());
         CEPRepositorio cepRepositorio = new CEPRepositorio(fileCEP);
 
-        System.out.println(cepRepositorio.getCEP("29047-033").getRua());
+        System.out.println(cepRepositorio.getCEP("29030-021").getRua());
     }
 }

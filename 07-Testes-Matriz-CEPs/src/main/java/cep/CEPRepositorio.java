@@ -1,3 +1,5 @@
+package cep;
+
 import hashTable.HashTable;
 import hashTable.ItemTabelaHash;
 import hashTable.TabelaHashEA;
@@ -11,11 +13,18 @@ public class CEPRepositorio {
 
     private HashTable ceps;
 
-    public CEPRepositorio(File fileCEP) throws IOException {
+    public CEPRepositorio(File fileCEPs) throws IOException {
         ceps = new TabelaHashEA();
-        FileReader fileReader = new FileReader(fileCEP);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        readCEPs(fileCEPs);
+    }
+
+    private void readCEPs(File fileCEPs) throws IOException {
+        FileReader fileReader;
+        BufferedReader bufferedReader;
         String line;
+
+        fileReader = new FileReader(fileCEPs);
+        bufferedReader = new BufferedReader(fileReader);
 
         while ((line = bufferedReader.readLine()) != null) {
             String[] fields = line.split(";");
@@ -28,8 +37,10 @@ public class CEPRepositorio {
             newCEP.setMunicipio(fields[3].split(",")[0].replaceAll(regexRemoveWhiteSpaces, ""));
             newCEP.setEstado(fields[3].split(",")[1].replaceAll(regexRemoveWhiteSpaces, ""));
 
-            ceps.insert(new ItemTabelaHash<>(newCEP.getCep(), newCEP));
+            this.ceps.insert(new ItemTabelaHash<>(newCEP.getCep(), newCEP));
         }
+
+        bufferedReader.close();
     }
 
     public CEP getCEP(String cep) {
