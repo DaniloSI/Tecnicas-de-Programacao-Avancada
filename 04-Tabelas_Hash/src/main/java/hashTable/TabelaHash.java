@@ -17,6 +17,23 @@ public class TabelaHash extends HashTable {
         this.funcaoHash = funcaoHash;
     }
 
+    public TabelaHash(int size) {
+        this.tabelaHashLista = new LinkedList[size];
+        this.funcaoHash = (Object key, int relativeValue) -> {
+            int hash = 0;
+            int base = 2;
+            int expoente = 0;
+
+            for (char caracter : ((String) key).toCharArray()) {
+                hash += caracter * (base^expoente);
+
+                expoente++;
+            }
+
+            return hash % relativeValue;
+        };
+    }
+
     public void insert(ItemTabelaHash itemAdd) {
         int posicao = funcaoHash.calculaHash(itemAdd.getKey(), tabelaHashLista.length);
 
