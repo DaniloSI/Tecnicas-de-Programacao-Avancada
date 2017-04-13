@@ -31,7 +31,9 @@ public class Matrix {
      * @param value Valor que será inserido.
      */
     public void add(int row, int column, double value) {
-        matrix.insert(new ItemTabelaHash<>(row + ";" + column, value));
+
+        if (value != 0.0D)
+            matrix.insert(new ItemTabelaHash<>(row + ";" + column, value));
 
         // A quantidade de linhas será a mesma se a linha alvo for maior. Caso o contrário passa a ser a própria linha alvo.
         numberOfRows = ((row + 1) > numberOfRows) ? (row + 1) : numberOfRows;
@@ -55,7 +57,7 @@ public class Matrix {
         String matrix = "";
         for (int row = 0; row < numberOfRows; row++) {
              for (int column = 0; column < numberOfColumns; column++) {
-                matrix += (get(row, column) + "\t");
+                matrix += String.format("%7.2f   ", get(row, column));
             }
             matrix += ("\n");
         }
