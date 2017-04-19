@@ -24,12 +24,12 @@ public class Dicionario<TK, TV> {
         hashTable.insert(newItem);
     }
 
-    public TV find(TK key) throws Exception {
+    public TV find(TK key) {
         ItemTabelaHash item = hashTable.find(key);
 
         if (item == HashTable.NO_SUCH_KEY) {
 
-            throw new Exception("Chave inválida.");
+            throw new IllegalArgumentException("Chave inválida.");
 
         } else {
 

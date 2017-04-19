@@ -71,11 +71,14 @@ public class TabelaHash extends HashTable {
     public ItemTabelaHash find(Object key) {
         int posicao = funcaoHash.calculaHash(key, tabelaHashLista.length);
 
-        for(ItemTabelaHash item: tabelaHashLista[posicao]) {
-            if (item.getKey().equals(key)) {
-                return item;
+        if (tabelaHashLista[posicao] == null)
+            return NO_SUCH_KEY;
+
+        else
+            for(ItemTabelaHash item: tabelaHashLista[posicao]) {
+                if (item.getKey().equals(key))
+                    return item;
             }
-        }
 
         return NO_SUCH_KEY;
     }
