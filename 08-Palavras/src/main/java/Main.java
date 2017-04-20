@@ -11,5 +11,6 @@ public class Main {
         TextAnalyzer textAnalyzer = new TextAnalyzer(new TextFileLoader(file));
 
         System.out.println("Frequência para Polícia: " + textAnalyzer.getFrequencyWord("polícia"));
+        System.out.println("Palavra de maior frequência: " + textAnalyzer.getWordMaiorFrequencia());
     }
 }
