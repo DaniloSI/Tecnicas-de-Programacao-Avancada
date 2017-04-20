@@ -20,11 +20,9 @@ public class TextAnalyzer {
         while ( (line = fileLoader.nextLine()) != null) {
             for (String word : line.split("[\\p{Punct}\\s\\d]")) {
                 try {
-                    words.find(word.toLowerCase());
-                } catch (IllegalArgumentException e) {
-                    words.insert(word.toLowerCase(), 0);
-                } finally {
                     words.insert(word.toLowerCase(), words.find(word.toLowerCase()) + 1);
+                } catch (IllegalArgumentException e) {
+                    words.insert(word.toLowerCase(), 1);
                 }
             }
         }

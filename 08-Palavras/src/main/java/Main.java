@@ -10,6 +10,6 @@ public class Main {
         File file = new File(Main.class.getClassLoader().getResource("corpus.txt").getFile());
         TextAnalyzer textAnalyzer = new TextAnalyzer(new TextFileLoader(file));
 
-        System.out.println(textAnalyzer.getFrequencyWord("polícia"));
+        System.out.println("Frequência para Polícia: " + textAnalyzer.getFrequencyWord("polícia"));
     }
 }
