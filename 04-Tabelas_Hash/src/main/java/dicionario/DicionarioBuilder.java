@@ -9,11 +9,11 @@ public class DicionarioBuilder<TK, TV> {
 
     public enum TipoTabelaHash {LINEAR_PROBING, CHINING}
     private TipoTabelaHash tipoTabelaHash;
-    private TipoFuncaoHash tipoFuncaoHash;
+    private HashEngine hashEngine;
 
 
-    public DicionarioBuilder setTipoFuncaoHash(TipoFuncaoHash tipoFuncaoHash) {
-        this.tipoFuncaoHash = tipoFuncaoHash;
+    public DicionarioBuilder setHashEngine(HashEngine hashEngine) {
+        this.hashEngine = hashEngine;
 
         return this;
     }
@@ -25,39 +25,10 @@ public class DicionarioBuilder<TK, TV> {
     }
 
     public Dicionario get() {
-        FHash fHash;
-        HashTable hashTable;
-
-        fHash = (tipoFuncaoHash == TipoFuncaoHash.POLINOMIAL) ? this::fHashPolinomial : this::fHashNaoPolinomial;
-
-        hashTable = (tipoTabelaHash == TipoTabelaHash.CHINING) ? new TabelaHash(100, fHash) : new TabelaHashEA(fHash);
-
-        return new Dicionario<TK, TV>(hashTable);
+        if (tipoTabelaHash == TipoTabelaHash.CHINING)
+            return new Dicionario<TK, TV>(new TabelaHashChain(hashEngine));
+        else
+            return new Dicionario<TK, TV>(new TabelaHashEA(hashEngine));
     }
-
-    private int fHashPolinomial(Object key, int relativeValue) {
-        int hash = 0;
-        int base = 2;
-        int expoente = 0;
-
-        for (char caracter : ((String) key).toCharArray()) {
-            hash += caracter * (base^expoente);
-
-            expoente++;
-        }
-
-        return hash % relativeValue;
-    }
-
-    private int fHashNaoPolinomial(Object key, int relativeValue) {
-        int hash = 0;
-
-        for (char caracter : ((String) key).toCharArray()) {
-            hash += caracter;
-        }
-
-        return hash % relativeValue;
-    }
-
 
 }

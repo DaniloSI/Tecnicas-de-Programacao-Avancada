@@ -1,6 +1,8 @@
 import dicionario.Dicionario;
 import dicionario.DicionarioBuilder;
-import hashTable.TipoFuncaoHash;
+import hashTable.HashEngineDefault;
+
+import java.io.IOException;
 
 /**
  * Created by danilo on 28/03/17.
@@ -10,7 +12,7 @@ public class AgendaTelefonica {
 
     public AgendaTelefonica() {
         this.agendaDicionario = new DicionarioBuilder<String, String>()
-                .setTipoFuncaoHash(TipoFuncaoHash.POLINOMIAL)
+                .setHashEngine(new HashEngineDefault())
                 .setTipoTabelaHash(DicionarioBuilder.TipoTabelaHash.LINEAR_PROBING)
                 .get();
     }
@@ -23,8 +25,8 @@ public class AgendaTelefonica {
         agendaDicionario.remove(numero.toString());
     }
 
-    public String getCsv() {
-        return agendaDicionario.getCsvArmazenamento();
+    public void salvaColisoes(String fileName) throws IOException {
+        agendaDicionario.salvaColisoesKeys(fileName);
     }
 
 }

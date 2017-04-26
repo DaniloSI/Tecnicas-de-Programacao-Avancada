@@ -1,6 +1,6 @@
 import dicionario.Dicionario;
 import dicionario.DicionarioBuilder;
-import hashTable.TipoFuncaoHash;
+import hashTable.HashEngineDefault;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class TesteTabelaHashEA {
     @Before
     public void setDicionario() {
         dicionario = new DicionarioBuilder<String, String>()
-                .setTipoFuncaoHash(TipoFuncaoHash.POLINOMIAL)
+                .setHashEngine(new HashEngineDefault())
                 .setTipoTabelaHash(DicionarioBuilder.TipoTabelaHash.LINEAR_PROBING)
                 .get();
     }
@@ -33,15 +33,15 @@ public class TesteTabelaHashEA {
 
     @Test
     public void testeKeysElements() {
-        List<String> keys = new ArrayList<>();
-        List<String> elements = new ArrayList<>();
+        List<String> keys;
+        List<String> elements;
 
         dicionario.insert("Danilo", "156");
         dicionario.insert("de", "228");
         dicionario.insert("Oliveira", "747-85");
 
-        Collections.addAll(keys, dicionario.keys());
-        Collections.addAll(elements, dicionario.elements());
+        keys = dicionario.keys();
+        elements = dicionario.elements();
 
         assertEquals(true, keys.contains("Danilo"));
         assertEquals(true, keys.contains("de"));
@@ -57,16 +57,25 @@ public class TesteTabelaHashEA {
 
     @Test
     public void testeSize() {
+
+
         dicionario.insert("Danilo", "156");
         assertEquals(1, dicionario.size());
 
         dicionario.insert("de", "228");
         assertEquals(2, dicionario.size());
 
+        System.out.println(dicionario.keys());
+        System.out.println(dicionario.elements());
+
         dicionario.remove("Danilo");
         assertEquals(1, dicionario.size());
 
         dicionario.remove("de");
+
+        System.out.println(dicionario.keys());
+        System.out.println(dicionario.elements());
+
         assertEquals(0, dicionario.size());
     }
 

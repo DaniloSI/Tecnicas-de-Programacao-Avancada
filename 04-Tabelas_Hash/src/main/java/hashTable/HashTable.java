@@ -1,25 +1,45 @@
 package hashTable;
 
+import java.io.IOException;
+import java.util.LinkedList;
+
 /**
  * Created by danilo on 05/04/17.
  */
 public abstract class HashTable {
 
-    public static final ItemTabelaHash NO_SUCH_KEY = new ItemTabelaHash(null, null);
+    public static final Item NO_SUCH_KEY = new Item(null, null);
 
-    public abstract void insert(ItemTabelaHash itemAdd);
+    protected int tamanho = 1;
+    protected int quantidadeItens = 0;
+    protected HashEngine hashEngine;
 
-    public abstract ItemTabelaHash find(Object key);
+    public HashTable() {
+        this.hashEngine = new HashEngineDefault();
+    }
 
-    public abstract ItemTabelaHash remove(Object key);
+    public HashTable(HashEngine hE) {
+        this.hashEngine = hE;
+    }
+
+    public HashTable(int tam, HashEngine hE) {
+        this.tamanho = tam;
+        this.hashEngine = hE;
+    }
+
+    public abstract boolean insertItem(Object key, Object elem);
+
+    public abstract Object removeItem(Object key);
+
+    public abstract Object findElem(Object key);
 
     public abstract int size();
 
-    public abstract boolean isEmpty();
+    public abstract boolean empty();
 
-    public abstract Object[] keys();
+    public abstract LinkedList keys();
 
-    public abstract Object[] elements();
+    public abstract LinkedList elements();
 
-    public abstract String getCsv();
+    public abstract void salvaColisoes(String fileName) throws IOException;
 }

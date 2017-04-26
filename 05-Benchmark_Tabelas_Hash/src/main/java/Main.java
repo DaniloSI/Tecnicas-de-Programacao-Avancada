@@ -6,15 +6,13 @@ import java.io.*;
 public class Main {
 
     private static final String fileAgenda = "agenda.csv";
-    private static final String fileOutput = "csvArmazenamentoNaoPolinomial.csv";
+    private static final String fileOutput = "colisoes-agenda.csv";
 
     public static void main(String[] args) throws IOException {
         AgendaTelefonica agendaTelefonica = new AgendaTelefonica();
         File fileToRead = new File(Main.class.getClassLoader().getResource(fileAgenda).getFile());
-        File fileToWrite = new File(Main.class.getClassLoader() + fileOutput);
         FileReader fileReader = new FileReader(fileToRead);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
-        FileWriter fileWriter = new FileWriter(fileToWrite);
 
         String line;
         while ((line = bufferedReader.readLine()) != null) {
@@ -24,8 +22,7 @@ public class Main {
 
         bufferedReader.close();
 
-        fileWriter.write(agendaTelefonica.getCsv());
-        fileWriter.close();
+        agendaTelefonica.salvaColisoes(fileOutput);
 
     }
 }

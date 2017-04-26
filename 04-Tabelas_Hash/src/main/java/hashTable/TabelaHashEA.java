@@ -1,158 +1,156 @@
 package hashTable;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.LinkedList;
+
 /**
  * Created by Danilo de Oliveira on 22/03/2017.
  */
 public class TabelaHashEA extends HashTable {
 
-    private ItemTabelaHash[] tabelaHashLinearProbing;
-    private int quantidadeElementos;
-    private FHash fHash;
+    private Item[] tabelaHash = new Item[tamanho];
 
-    public TabelaHashEA(FHash fHash) {
-        this.tabelaHashLinearProbing = new ItemTabelaHash[100];
-        this.quantidadeElementos = 0;
-        this.fHash = fHash;
+    public TabelaHashEA() { }
+
+    public TabelaHashEA(HashEngine hE) {
+        super(hE);
     }
 
-    public TabelaHashEA() {
-        this.tabelaHashLinearProbing = new ItemTabelaHash[100];
-        this.fHash = (Object key, int relativeValue) -> {
-            int hash = 0;
-            int base = 2;
-            int expoente = 0;
-
-            for (char caracter : ((String) key).toCharArray()) {
-                hash += caracter * (base^expoente);
-
-                expoente++;
-            }
-
-            return hash % relativeValue;
-        };
+    public TabelaHashEA(int tam, HashEngine hE) {
+        super(tam, hE);
     }
 
-    public void insert(ItemTabelaHash itemAdd) {
-        int position = fHash.calculaHash(itemAdd.getKey(), tabelaHashLinearProbing.length);
+    @Override
+    public boolean insertItem(Object key, Object elem) {
+        Item newItem = new Item(key, elem, hashEngine.hashCode(key));
+        Integer posicao = getPosicao(key, newItem.getCacheHCode());
 
-        if (tabelaHashLinearProbing[position] != null &&
-                tabelaHashLinearProbing[position].getKey().equals(itemAdd.getKey())) {
-
-            tabelaHashLinearProbing[position].setValue(itemAdd.getValue());
-
+        if (tabelaHash[posicao] != null) {
+            tabelaHash[posicao].setElem(elem);
         } else {
-
-            if (quantidadeElementos >= (tabelaHashLinearProbing.length * 0.8)) {
-                increaseSizeTabelaHash();
-                position = fHash.calculaHash(itemAdd.getKey(), tabelaHashLinearProbing.length);
-            }
-
-            while (tabelaHashLinearProbing[position] != null)
-                position = (position + 1) % tabelaHashLinearProbing.length;
-
-            tabelaHashLinearProbing[position] = itemAdd;
-            quantidadeElementos++;
-
+            tabelaHash[posicao] = newItem;
+            quantidadeItens++;
         }
 
+        if (((float) quantidadeItens) >= (0.95 * tamanho))
+            redimensiona();
+
+        return true;
     }
 
-    private void increaseSizeTabelaHash() {
-        ItemTabelaHash[] antigaTabelaHash = tabelaHashLinearProbing;
-        tabelaHashLinearProbing = new ItemTabelaHash[tabelaHashLinearProbing.length * 2];
+    private void redimensiona() {
+        Item[] oldTabelaHash = tabelaHash;
+        tamanho *= 2;
+        tabelaHash = new Item[tamanho];
 
-        for (ItemTabelaHash item: antigaTabelaHash) {
+        for (int i = 0 ; i < oldTabelaHash.length ; i++) {
+            Item item = oldTabelaHash[i];
+
             if (item != null) {
-                this.insert(item);
+                int posicao = item.getCacheHCode() % tamanho;
+
+                while (tabelaHash[posicao] != null)
+                    posicao = (posicao + 1) % tamanho;
+
+                tabelaHash[posicao] = item;
             }
         }
 
     }
 
-    public ItemTabelaHash find(Object key) {
-        int position = fHash.calculaHash(key, tabelaHashLinearProbing.length);
+    @Override
+    public Object removeItem(Object key) {
+        Integer posicao = getPosicao(key, hashEngine.hashCode(key));
+        Item itemRemove;
 
-        while (tabelaHashLinearProbing[position] != null) {
+        if (tabelaHash[posicao] != null) {
+            itemRemove = tabelaHash[posicao];
+            tabelaHash[posicao] = null;
+            quantidadeItens--;
 
-            if (tabelaHashLinearProbing[position].getKey().equals(key))
-                return tabelaHashLinearProbing[position];
-            else
-                position = (position + 1) % tabelaHashLinearProbing.length;
-
+            return itemRemove.getElement();
         }
 
         return NO_SUCH_KEY;
     }
 
-    public ItemTabelaHash remove(Object key) {
-        int position = fHash.calculaHash(key, tabelaHashLinearProbing.length);
+    @Override
+    public Object findElem(Object key) {
+        Integer posicao = getPosicao(key, hashEngine.hashCode(key));
 
-        while (tabelaHashLinearProbing[position] != null) {
-
-            if (tabelaHashLinearProbing[position].getKey().equals(key)) {
-                ItemTabelaHash itemRemovido = tabelaHashLinearProbing[position];
-
-                tabelaHashLinearProbing[position] = null;
-                quantidadeElementos--;
-
-                return itemRemovido;
-            }
-            else
-                position = (position + 1) % tabelaHashLinearProbing.length;
-
-        }
-
-        return NO_SUCH_KEY;
+        return (tabelaHash[posicao] != null) ? tabelaHash[posicao].getElement() : NO_SUCH_KEY;
     }
 
+    @Override
     public int size() {
-        return quantidadeElementos;
+        return quantidadeItens;
     }
 
-    public boolean isEmpty() {
-        return quantidadeElementos == 0;
+    @Override
+    public boolean empty() {
+        return quantidadeItens == 0;
     }
 
-    public Object[] keys() {
-        Object[] keys = new Object[quantidadeElementos];
-        int position = 0;
+    @Override
+    public LinkedList keys() {
+        LinkedList<Object> keys = new LinkedList<>();
 
-        for (ItemTabelaHash item : tabelaHashLinearProbing) {
-            if (item != null) {
-                keys[position] = item.getKey();
-                position++;
-            }
+        for (int i = 0 ; i < tamanho ; i++) {
+            if (tabelaHash[i] != null)
+                keys.add(tabelaHash[i].getKey());
         }
 
         return keys;
     }
 
-    public Object[] elements() {
-        Object[] elements = new Object[quantidadeElementos];
-        int position = 0;
+    @Override
+    public LinkedList elements() {
+        LinkedList<Object> elements = new LinkedList<>();
 
-        for (ItemTabelaHash item : tabelaHashLinearProbing) {
-            if (item != null) {
-                elements[position] = item.getValue();
-                position++;
-            }
+        for (int i = 0 ; i < tamanho ; i++) {
+            if (tabelaHash[i] != null)
+                elements.add(tabelaHash[i].getElement());
         }
 
         return elements;
     }
 
-    public String getCsv() {
-        String csv = "posicao,quantidade de elementos\n";
+    @Override
+    public void salvaColisoes(String fileName) throws IOException {
+        PrintWriter fileColisoes = new PrintWriter(new File(fileName));
+        int[] countColisoes = new int[tamanho];
 
-
-        for (int i = 0 ; i < tabelaHashLinearProbing.length ; i++) {
-            if (tabelaHashLinearProbing[i] != null) {
-                csv += i + "," + 1 + "\n";
-            } else {
-                csv += i + "," + 0 + "\n";
-            }
+        for (int i = 0 ; i < tamanho ; i++) {
+            if (tabelaHash[i] != null)
+                countColisoes[getPosicao(tabelaHash[i].getCacheHCode())]++;
         }
 
-        return csv;
+        for (int i = 0 ; i < countColisoes.length ; i++) {
+            if (countColisoes[i] > 0)
+                fileColisoes.println(i + "," + (countColisoes[i] - 1));
+        }
+
+        fileColisoes.close();
+    }
+
+    private Integer getPosicao(Object key, int hashCode) {
+        int posicao = getPosicao(hashCode);
+
+        for (int i = 0 ; i < (tamanho - 1) ; i++) {
+            Item item = tabelaHash[posicao];
+
+            if (item != null && item.equals(new Item(key, null)))
+                return posicao;
+
+            posicao = (posicao + 1) % tamanho;
+        }
+
+        return posicao;
+    }
+
+    private Integer getPosicao(int hashCode) {
+        return hashCode % tamanho;
     }
 }

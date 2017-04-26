@@ -3,43 +3,36 @@ package dicionario;
 
 import hashTable.*;
 
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Created by Danilo de Oliveira on 22/03/2017.
  */
 public class Dicionario<TK, TV> {
 
     private HashTable hashTable;
-    public static ItemTabelaHash NO_SUCH_KEY;
 
     public Dicionario(HashTable hashTable) {
-
         this.hashTable = hashTable;
-
-        NO_SUCH_KEY = HashTable.NO_SUCH_KEY;
-
     }
 
     public void insert(TK key, TV value) {
-        ItemTabelaHash<TK, TV> newItem = new ItemTabelaHash<>(key, value);
-        hashTable.insert(newItem);
+        hashTable.insertItem(key, value);
     }
 
     public TV find(TK key) {
-        ItemTabelaHash item = hashTable.find(key);
+        Object object = hashTable.findElem(key);
 
-        if (item == HashTable.NO_SUCH_KEY) {
-
+        if (object == HashTable.NO_SUCH_KEY)
             throw new IllegalArgumentException("Chave inválida.");
-
-        } else {
-
-            return (TV) item.getValue();
-
-        }
+        else
+            return (TV) object;
     }
 
     public void remove(TK key) {
-        hashTable.remove(key);
+        hashTable.removeItem(key);
     }
 
     public int size() {
@@ -47,21 +40,31 @@ public class Dicionario<TK, TV> {
     }
 
     public boolean isEmpty() {
-        return this.size() == 0;
+        return hashTable.empty();
     }
 
-    public TK[] keys() {
+    public List<TK> keys() {
+        List<TK> listKeys = new LinkedList<>();
 
-        return (TK[]) hashTable.keys();
+        for (Object objectKey: hashTable.keys()) {
+            listKeys.add((TK) objectKey);
+        }
+
+        return listKeys;
     }
 
-    public TV[] elements() {
+    public List<TV> elements() {
+        List<TV> listElements = new LinkedList<>();
 
-        return (TV[]) hashTable.elements();
+        for (Object objectKey: hashTable.elements()) {
+            listElements.add((TV) objectKey);
+        }
+
+        return listElements;
     }
 
-    public String getCsvArmazenamento() {
-        return hashTable.getCsv();
+    public void salvaColisoesKeys(String fileName) throws IOException {
+        hashTable.salvaColisoes(fileName);
     }
 
 }
