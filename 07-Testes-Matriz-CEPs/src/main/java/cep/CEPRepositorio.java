@@ -1,7 +1,6 @@
 package cep;
 
 import hashTable.HashTable;
-import hashTable.ItemTabelaHash;
 import hashTable.TabelaHashEA;
 
 import java.io.*;
@@ -37,15 +36,15 @@ public class CEPRepositorio {
             newCEP.setMunicipio(fields[3].split(",")[0].replaceAll(regexRemoveWhiteSpaces, ""));
             newCEP.setEstado(fields[3].split(",")[1].replaceAll(regexRemoveWhiteSpaces, ""));
 
-            this.ceps.insert(new ItemTabelaHash<>(newCEP.getCep(), newCEP));
+            this.ceps.insertItem(newCEP.getCep(), newCEP);
         }
 
         bufferedReader.close();
     }
 
     public CEP getCEP(String cep) {
-        ItemTabelaHash itemCEP = ceps.find(cep);
-        return (itemCEP != HashTable.NO_SUCH_KEY) ? (CEP) itemCEP.getValue() : null;
+        Object objectCEP = ceps.findElem(cep);
+        return (objectCEP != HashTable.NO_SUCH_KEY) ? (CEP) objectCEP : null;
     }
 
 }
