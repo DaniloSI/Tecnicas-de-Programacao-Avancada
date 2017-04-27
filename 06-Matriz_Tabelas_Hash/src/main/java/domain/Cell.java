@@ -1,51 +1,46 @@
 package domain;
 
 /**
- * Created by 20142bsi0186 on 16/02/2017.
+ * Created by danilo on 24/04/17.
  */
 public class Cell {
-    private int row;
-    private int column;
-    private double value;
+    private int i;
+    private int j;
+    private float elem;
 
-    public Cell() {}
-
-    public Cell(int row, int column, double value) {
-        this.row = row;
-        this.column = column;
-        this.value = value;
+    public Cell(int i, int j, float elem) {
+        this.i = i;
+        this.j = j;
+        this.elem = elem;
     }
 
-    public int getRow() {
-        return row;
+    public Cell(int i, int j) {
+        this.i = i;
+        this.j = j;
     }
 
-    public void setRow(int row) {
-        this.row = row;
+    public int getI() {
+        return i;
     }
 
-    public int getColumn() {
-        return column;
+    public int getJ() {
+        return j;
     }
 
-    public void setColumn(int column) {
-        this.column = column;
+    public float getElem() {
+        return elem;
     }
 
-    public double getValue() {
-        return value;
-    }
-
-    public void setValue(double value) {
-        this.value = value;
+    public void setElem(float elem) {
+        this.elem = elem;
     }
 
     @Override
-    public boolean equals(Object paramCell) {
-        if (paramCell instanceof Cell) {
-            Cell cell = (Cell) paramCell;
+    public boolean equals(Object object) {
+        if (object instanceof Cell) {
+            Cell cell = (Cell) object;
 
-            return cell.getRow() == this.row && cell.getColumn() == this.column && cell.getValue() == this.value;
+            return i == cell.getI() && j == cell.getJ();
         }
 
         return false;

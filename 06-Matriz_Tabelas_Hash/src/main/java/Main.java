@@ -1,4 +1,3 @@
-import controller.FileMatrix;
 import domain.Matrix;
 
 import java.io.File;
@@ -13,17 +12,15 @@ public class Main {
     private static String resourcePathBdMatrizes = "bd-matrizes" + File.separator;
 
     public static void main(String[] args) throws IOException, URISyntaxException {
-        ClassLoader classLoader = Main.class.getClassLoader();
-        File fileMatrix = new File(classLoader.getResource(resourcePathBdMatrizes + "mat001.txt").toURI());
-        Matrix matrixDoubles = FileMatrix.readFileMatrix(fileMatrix);
+        String fileName = resourcePathBdMatrizes + "mat001.txt";
+        Matrix matrixDoubles = Matrix.carregaMMF("circuit_2.mtx");
 
-        System.out.println(matrixDoubles);
-
+        System.out.println(matrixDoubles.get(4313, 3868));
 
         // Teste produto de matrizes
-        Matrix matrixOne = new Matrix();
-        Matrix matrixTwo = new Matrix();
-        Matrix matrixResult = new Matrix();
+        Matrix matrixOne = new Matrix(2, 4);
+        Matrix matrixTwo = new Matrix(4, 3);
+        Matrix matrixResult = new Matrix(2, 3);
 
 
         matrixOne.add(0, 0, 9);
@@ -56,6 +53,8 @@ public class Main {
         matrixResult.add(1, 2, 57);
 
         System.out.println(matrixOne.times(matrixTwo).equals(matrixResult));
+
+        matrixResult.salvaMMF("Produto_Matrizes.mtx");
         // Fim teste produto de matrizes
     }
 
