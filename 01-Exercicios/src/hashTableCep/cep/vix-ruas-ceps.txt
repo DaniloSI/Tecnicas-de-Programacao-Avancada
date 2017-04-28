@@ -1,0 +1,250 @@
+29043-528	;	Praça Anita Francisca Crystello	;	Tabuazeiro	;	Vitória, ES
+29070-493	;	Rua Anita Giovanoti	;	Maria Ortiz	;	Vitória, ES
+29047-522	;	Beco Anna Anastácia Cirilo	;	Itararé	;	Vitória, ES
+29060-100	;	Praça Anníbal Anthero Martins (lado par)	;	Jardim da Penha	;	Vitória, ES
+29060-902	;	Praça Anníbal Anthero Martins (lado ímpar)	;	Jardim da Penha	;	Vitória, ES
+29065-240	;	Rua Anníbal Vieira Rabayolli	;	Mata da Praia	;	Vitória, ES
+29053-250	;	Rua Anselmo Serrat	;	Monte Belo	;	Vitória, ES
+29053-253	;	Escadaria Anselmo Serrat	;	Monte Belo	;	Vitória, ES
+29032-787	;	Rua Antário Alexandre Theodoro Filho	;	Redenção	;	Vitória, ES
+29032-399	;	Rua Antário Alexandre Theodoro Filho	;	Nova Palestina	;	Vitória, ES
+29045-067	;	Beco Antenor Falcão	;	Andorinhas	;	Vitória, ES
+29018-625	;	Rua Antenor Guimarães	;	Santa Clara	;	Vitória, ES
+29020-735	;	Rua Antenor Guimarães (lado par)	;	do Moscoso	;	Vitória, ES
+29020-734	;	Rua Antenor Guimarães (lado ímpar)	;	do Moscoso	;	Vitória, ES
+29047-860	;	Escadaria Antenor Passos	;	São Benedito	;	Vitória, ES
+29040-710	;	Rua Antero de Almeida	;	Jucutuquara	;	Vitória, ES
+29052-220	;	Ladeira Anthero Braído	;	Praia do Suá	;	Vitória, ES
+29092-130	;	Rua Antiocho Carneiro de Mendonça	;	Jardim Camburi	;	Vitória, ES
+29017-042	;	Escadaria Antípo Francisco do Nascimento	;	Forte São João	;	Vitória, ES
+29070-283	;	Rua Antonello Braga	;	Maria Ortiz	;	Vitória, ES
+29045-093	;	Rua Antônia Adami	;	Andorinhas	;	Vitória, ES
+29043-387	;	Escadaria Antônia Pereira Paiva	;	Tabuazeiro	;	Vitória, ES
+29043-366	;	Beco Antônia Servina Simplício	;	Tabuazeiro	;	Vitória, ES
+29040-840	;	Rua Antonieta Tatagiba	;	Jucutuquara	;	Vitória, ES
+29065-260	;	Rua Antonino Ribeiro	;	Mata da Praia	;	Vitória, ES
+29016-020	;	Rua Antônio Aguirre	;	Centro	;	Vitória, ES
+29045-170	;	Rua Antônio Aleixo	;	Horto	;	Vitória, ES
+29045-660	;	Rua Antônio Aleixo	;	Consolação	;	Vitória, ES
+29046-195	;	Rua Antônio Aleixo	;	Gurigica	;	Vitória, ES
+29042-825	;	Rua Antônio Aleixo	;	de Lourdes	;	Vitória, ES
+29050-485	;	Rua André Carloni	;	Enseada do Suá	;	Vitória, ES
+29045-062	;	Rua André Rodrigues Pedro	;	Andorinhas	;	Vitória, ES
+29047-470	;	Beco Andrelino Lucas dos Santos	;	Itararé	;	Vitória, ES
+29047-021	;	Escadaria Andrelino Pereira	;	Bonfim	;	Vitória, ES
+29025-850	;	Praça Anedir de Lima Corrêa	;	Caratoíra	;	Vitória, ES
+29045-060	;	Rua Anestor Pedro	;	Andorinhas	;	Vitória, ES
+29072-030	;	Rua Ângela Maria Cani Gama	;	Solon Borges	;	Vitória, ES
+29043-615	;	Rua Ângela Roza Simonelli	;	Tabuazeiro	;	Vitória, ES
+29062-505	;	Rua Angelindo Carareto	;	Morada de Camburi	;	Vitória, ES
+29090-560	;	Rua Ângelo Carão	;	Jardim Camburi	;	Vitória, ES
+29042-350	;	Rua Ângelo Ripoli	;	Fradinhos	;	Vitória, ES
+29046-500	;	Rua Ângelo Zardine	;	Santa Martha	;	Vitória, ES
+29046-694	;	Travessa Ângelo Zardine	;	Santa Martha	;	Vitória, ES
+29047-675	;	Escadaria Aníbal Eugênio dos Santos	;	Itararé	;	Vitória, ES
+29060-670	;	Avenida Anísio Fernandes Coelho	;	Jardim da Penha	;	Vitória, ES
+29065-035	;	Avenida Anísio Fernandes Coelho	;	Mata da Praia	;	Vitória, ES
+29070-297	;	Beco Anísio Pereira do Nascimento	;	Maria Ortiz	;	Vitória, ES
+29072-231	;	Rua Alfredo Otto Drews	;	Jabour	;	Vitória, ES
+29043-230	;	Rua Alfredo Sampaio	;	Santa Cecília	;	Vitória, ES
+29043-025	;	Travessa Alfredo Sampaio	;	Maruípe	;	Vitória, ES
+29043-242	;	Rua Alfredo Sampaio 1	;	Santa Cecília	;	Vitória, ES
+29027-178	;	Escadaria Alfredo Schaeffer	;	Mário Cypreste	;	Vitória, ES
+29017-037	;	Beco Algenico José Coelho	;	Forte São João	;	Vitória, ES
+29090-290	;	Rua Alice Bumachar Neffa	;	Jardim Camburi	;	Vitória, ES
+29052-041	;	Escadaria Alice Cabral de Oliveira	;	Jesus de Nazareth	;	Vitória, ES
+29017-158	;	Beco Alice Maciel	;	Forte São João	;	Vitória, ES
+29017-200	;	Escadaria Alice Maciel	;	Forte São João	;	Vitória, ES
+29043-407	;	Rua Alice Miranda de Araújo	;	Tabuazeiro	;	Vitória, ES
+29056-042	;	Praça Alice Quintela	;	Santa Lúcia	;	Vitória, ES
+29048-495	;	Rua Alice Vitória do Nascimento	;	São Cristóvão	;	Vitória, ES
+29090-020	;	Rua Alípio da Costa e Silva	;	Jardim Camburi	;	Vitória, ES
+29065-160	;	Praça Alípio Souza Filho	;	Mata da Praia	;	Vitória, ES
+29047-060	;	Rua Allan Kardec	;	Bonfim	;	Vitória, ES
+29043-352	;	Servidão Almerinda Batista Cavalcante	;	Tabuazeiro	;	Vitória, ES
+29090-550	;	Rua Almerinda Corina da Silva	;	Jardim Camburi	;	Vitória, ES
+29052-046	;	Beco Almir Barbosa	;	Jesus de Nazareth	;	Vitória, ES
+29017-039	;	Beco Almir Dias	;	Forte São João	;	Vitória, ES
+29041-363	;	Escadaria Almir Mathias	;	Romão	;	Vitória, ES
+29075-093	;	Beco Antônio Alvarenga Siqueira	;	Goiabeiras	;	Vitória, ES
+29048-020	;	Rua Antônio Alves Batista	;	Joana D'arc	;	Vitória, ES
+29090-030	;	Rua Antônio Araújo Lyra	;	Jardim Camburi	;	Vitória, ES
+29051-135	;	Escadaria Antônio Azevedo Rodrigues	;	Ilha de Santa Maria	;	Vitória, ES
+29047-523	;	Escadaria Antônio Bernardino Sessa	;	Itararé	;	Vitória, ES
+29065-250	;	Avenida Antônio Borges	;	Mata da Praia	;	Vitória, ES
+29075-580	;	Rua Antônio Caliari	;	Boa Vista	;	Vitória, ES
+29075-517	;	Escadaria Antônio Caliari	;	Boa Vista	;	Vitória, ES
+29026-760	;	Rua Antônio Campos	;	Santa Tereza	;	Vitória, ES
+29027-423	;	Rua Antônio Campos	;	Bela Vista	;	Vitória, ES
+29030-040	;	Escadaria Antônio Cares	;	São Pedro	;	Vitória, ES
+29070-286	;	Rua Antônio Carlos de Almeida	;	Maria Ortiz	;	Vitória, ES
+29047-859	;	Escadaria Ana de Freitas	;	São Benedito	;	Vitória, ES
+29047-210	;	Escadaria Ana de Freitas	;	da Penha	;	Vitória, ES
+29047-826	;	Beco Ana de Freitas III	;	São Benedito	;	Vitória, ES
+29041-335	;	Escadaria Ana de Jesus	;	Romão	;	Vitória, ES
+29041-313	;	Escadaria Ana Ferreira de Oliveira	;	Romão	;	Vitória, ES
+29025-685	;	Rua Ana Guimarães	;	Caratoíra	;	Vitória, ES
+29043-360	;	Rua Ana Marculina Marques	;	Tabuazeiro	;	Vitória, ES
+29043-381	;	Escadaria Ana Marculina Marques 1	;	Tabuazeiro	;	Vitória, ES
+29043-368	;	Escadaria Ana Marculina Marques 2	;	Tabuazeiro	;	Vitória, ES
+29042-735	;	Escadaria Ana Maria Alvarenga	;	Santos Dumont	;	Vitória, ES
+29030-090	;	Praça Ana Maria Brozeguini	;	São Pedro	;	Vitória, ES
+29032-578	;	Escadaria Ana Maria de Jesus	;	Resistência	;	Vitória, ES
+29032-272	;	Beco Ana Maria Fonte	;	Santo André	;	Vitória, ES
+29041-325	;	Escadaria Ana Maria Pinto	;	Romão	;	Vitória, ES
+29018-608	;	Escadaria Ana Nunes	;	Santa Clara	;	Vitória, ES
+29066-010	;	Rua Ana Vieira Mafra	;	Mata da Praia	;	Vitória, ES
+29056-195	;	Rua Anabyr Lopes França	;	Santa Lúcia	;	Vitória, ES
+29040-620	;	Rua Anália Quadros	;	Jucutuquara	;	Vitória, ES
+29042-171	;	Escadaria Anália Quadros	;	Fradinhos	;	Vitória, ES
+29031-807	;	Rua Anália Santos	;	São José	;	Vitória, ES
+29032-794	;	Rua Anália Santos	;	Redenção	;	Vitória, ES
+29032-767	;	Beco Anália Santos I	;	Redenção	;	Vitória, ES
+29041-633	;	Beco Ananias Cotta	;	Cruzamento	;	Vitória, ES
+29046-503	;	Rua Andaraí	;	Santa Martha	;	Vitória, ES
+29043-029	;	Rua Andaraí	;	Maruípe	;	Vitória, ES
+29048-545	;	Escadaria Amélia Costalonga	;	São Cristóvão	;	Vitória, ES
+29050-620	;	Rua Amélia da Cunha Ornelas	;	Bento Ferreira	;	Vitória, ES
+29060-110	;	Rua Amélia Tartuce Nasser	;	Jardim da Penha	;	Vitória, ES
+29050-630	;	Rua Amenóphis de Assis	;	Bento Ferreira	;	Vitória, ES
+29050-935	;	Rua Amenóphis de Assis 255	;	Bento Ferreira	;	Vitória, ES
+29032-570	;	Rua América do Sul	;	Resistência	;	Vitória, ES
+29032-571	;	Escadaria América do Sul	;	Resistência	;	Vitória, ES
+29032-581	;	Beco América do Sul 1	;	Resistência	;	Vitória, ES
+29032-588	;	Beco América do Sul 2	;	Resistência	;	Vitória, ES
+29050-463	;	Avenida Américo Buaiz - de 817 ao fim - lado ímpar	;	Enseada do Suá	;	Vitória, ES
+29050-950	;	Avenida Américo Buaiz 205	;	Enseada do Suá	;	Vitória, ES
+29050-902	;	Avenida Américo Buaiz 200	;	Enseada do Suá	;	Vitória, ES
+29050-911	;	Avenida Américo Buaiz 501	;	Enseada do Suá	;	Vitória, ES
+29050-930	;	Avenida Américo Buaiz 815	;	Enseada do Suá	;	Vitória, ES
+29050-420	;	Avenida Américo Buaiz - até 600 - lado par	;	Enseada do Suá	;	Vitória, ES
+29050-423	;	Avenida Américo Buaiz - até 815 - lado ímpar	;	Enseada do Suá	;	Vitória, ES
+29050-460	;	Avenida Américo Buaiz - de 602 ao fim - lado par	;	Enseada do Suá	;	Vitória, ES
+29047-033	;	Escadaria Américo Loureiro Nunes	;	Bonfim	;	Vitória, ES
+29010-640	;	Praça Américo Poli Monjardim	;	Centro	;	Vitória, ES
+29017-047	;	Praça Américo Poli Monjardim	;	Forte São João	;	Vitória, ES
+29030-021	;	Beco Amizade	;	São Pedro	;	Vitória, ES
+29024-525	;	Rua Amor Perfeito	;	Universitário	;	Vitória, ES
+29024-170	;	Rua Amorim Soares	;	Grande Vitória	;	Vitória, ES
+29047-814	;	Escadaria Amoroso	;	São Benedito	;	Vitória, ES
+29050-632	;	Rua Aluysio Simões - até 338 - lado par	;	Bento Ferreira	;	Vitória, ES
+29050-639	;	Rua Aluysio Simões - de 341 a 705 - lado ímpar	;	Bento Ferreira	;	Vitória, ES
+29050-634	;	Rua Aluysio Simões - de 340 a 700 - lado par	;	Bento Ferreira	;	Vitória, ES
+29050-637	;	Rua Aluysio Simões - até 339 - lado ímpar	;	Bento Ferreira	;	Vitória, ES
+29053-264	;	Rua Aluysio Simões - de 710 ao fim - lado par	;	Monte Belo	;	Vitória, ES
+29053-267	;	Rua Aluysio Simões - de 715 ao fim - lado ímpar	;	Monte Belo	;	Vitória, ES
+29050-015	;	Travessa Aluysio Simões	;	Enseada do Suá	;	Vitória, ES
+29046-577	;	Praça Álvaro Amorim	;	Santa Martha	;	Vitória, ES
+29065-230	;	Rua Álvaro Andrade Leitão	;	Mata da Praia	;	Vitória, ES
+29062-530	;	Rua Álvaro da Silva Labuto	;	Morada de Camburi	;	Vitória, ES
+29070-020	;	Rua Álvaro de Castro Mattos	;	República	;	Vitória, ES
+29051-100	;	Rua Álvaro Sarlo	;	Ilha de Santa Maria	;	Vitória, ES
+29090-300	;	Rua Alvim Borges da Silva	;	Jardim Camburi	;	Vitória, ES
+29062-515	;	Rua Alvim Soares Bermudes	;	Morada de Camburi	;	Vitória, ES
+29026-020	;	Rua Alvimar Silva	;	Santo Antônio	;	Vitória, ES
+29052-056	;	Escadaria Alvina Maria Cândida	;	Jesus de Nazareth	;	Vitória, ES
+29046-218	;	Beco Alvorada	;	Gurigica	;	Vitória, ES
+29027-235	;	Rua Alzira Zílio	;	Mário Cypreste	;	Vitória, ES
+29065-050	;	Avenida Alziro Zarur	;	Mata da Praia	;	Vitória, ES
+29060-350	;	Avenida Alziro Zarur	;	Jardim da Penha	;	Vitória, ES
+29060-901	;	Avenida Alziro Zarur 600	;	Jardim da Penha	;	Vitória, ES
+29025-021	;	Travessa Alziso Serafim dos Anjos	;	Vila Rubim	;	Vitória, ES
+29052-170	;	Rua Almirante Barroso	;	Praia do Suá	;	Vitória, ES
+29052-172	;	Escadaria Almirante Barroso 1	;	Praia do Suá	;	Vitória, ES
+29050-226	;	Praça Almirante Joaquim Marques Lisboa	;	Enseada do Suá	;	Vitória, ES
+29055-020	;	Rua Almirante Soído	;	Santa Helena	;	Vitória, ES
+29052-190	;	Rua Almirante Tamandaré	;	Praia do Suá	;	Vitória, ES
+29023-550	;	Rua Aloir Pereira de Jesus	;	Estrelinha	;	Vitória, ES
+29090-140	;	Praça Aloísio Sobreira Lima	;	Jardim Camburi	;	Vitória, ES
+29046-232	;	Escadaria Alphaville	;	Gurigica	;	Vitória, ES
+29070-262	;	Beco Altamiro de Paula Brandão	;	Maria Ortiz	;	Vitória, ES
+29042-800	;	Praça Altemar Dutra	;	de Lourdes	;	Vitória, ES
+29047-250	;	Rua Altino José Ribeiro	;	da Penha	;	Vitória, ES
+29033-367	;	Beco Alto Aliança	;	Santos Reis	;	Vitória, ES
+29033-325	;	Escadaria Alto Aliança	;	Santos Reis	;	Vitória, ES
+29033-032	;	Rampa Alto Belo	;	Conquista	;	Vitória, ES
+29033-017	;	Rua Alto Belo	;	Conquista	;	Vitória, ES
+29033-042	;	Rua Alto Belo 1	;	Conquista	;	Vitória, ES
+29033-053	;	Beco Alto Belo 2	;	Conquista	;	Vitória, ES
+29033-046	;	Beco Alto Belo 3	;	Conquista	;	Vitória, ES
+29032-555	;	Rua Alto Resistência	;	Resistência	;	Vitória, ES
+29032-120	;	Rua Amadeus Muniz Corrêa	;	Ilha das Caieiras	;	Vitória, ES
+29032-119	;	Beco Amadeus Muniz Corrêa 2	;	Ilha das Caieiras	;	Vitória, ES
+29040-820	;	Rua Amâncio Pereira	;	Jucutuquara	;	Vitória, ES
+29070-030	;	Rua Amarílio Lünz	;	República	;	Vitória, ES
+29060-660	;	Rua Amaro Severino da Silva	;	Jardim da Penha	;	Vitória, ES
+29062-100	;	Rua Amaro Severino da Silva	;	Pontal de Camburi	;	Vitória, ES
+29042-758	;	Escadaria Amauri Silva da Cruz	;	de Lourdes	;	Vitória, ES
+29075-052	;	Beco Aristides Lucidato	;	Goiabeiras	;	Vitória, ES
+29016-040	;	Rua Aristides Navarro	;	Centro	;	Vitória, ES
+29023-055	;	Rua Aristides Netto	;	Inhanguetá	;	Vitória, ES
+29023-615	;	Rua Aristides Netto	;	Estrelinha	;	Vitória, ES
+29026-043	;	Servidão Aristides Sampaio	;	Santo Antônio	;	Vitória, ES
+29060-010	;	Rua Aristóbulo Barbosa Leão	;	Jardim da Penha	;	Vitória, ES
+29066-300	;	Rua Aristóbulo Barbosa Leão	;	Mata da Praia	;	Vitória, ES
+29065-270	;	Praça Aristóbulo Inocêncio Ferreira	;	Mata da Praia	;	Vitória, ES
+29052-020	;	Escadaria Aristóteles Neves	;	Jesus de Nazareth	;	Vitória, ES
+29041-315	;	Rua Aristóteles Silva Santos	;	Romão	;	Vitória, ES
+29027-017	;	Rua Arivaldo Favalessa	;	Ariovaldo Favalessa	;	Vitória, ES
+29025-674	;	Rua Arivaldo Favalessa	;	Caratoíra	;	Vitória, ES
+29026-110	;	Rua Arivaldo Favalessa	;	Santo Antônio	;	Vitória, ES
+29056-043	;	Praça Arlete Borges Miguel Pernambuco	;	Santa Lúcia	;	Vitória, ES
+29043-145	;	Rua Arlethe Buaiz	;	Maruípe	;	Vitória, ES
+29090-661	;	Rua Arlinda Corrêa de Jesus	;	Jardim Camburi	;	Vitória, ES
+29047-625	;	Beco Arlindo Bolsoni	;	Itararé	;	Vitória, ES
+29045-350	;	Rua Arlindo Brás do Nascimento	;	Santa Luíza	;	Vitória, ES
+29056-270	;	Rua Arlindo da Motta	;	Santa Lúcia	;	Vitória, ES
+29075-522	;	Rua Arlindo Dias	;	Boa Vista	;	Vitória, ES
+29062-575	;	Rua Arlindo Dias	;	Morada de Camburi	;	Vitória, ES
+29027-177	;	Escadaria Arlindo Lyra Trancoso	;	Mário Cypreste	;	Vitória, ES
+29026-040	;	Escadaria Arlindo Lyra Trancoso	;	Santo Antônio	;	Vitória, ES
+29047-462	;	Rua Arlindo Marcolino de Oliveira	;	Itararé	;	Vitória, ES
+29092-280	;	Avenida Armando Duarte Rabello	;	Jardim Camburi	;	Vitória, ES
+29075-640	;	Avenida Armando Duarte Rabello	;	Aeroporto	;	Vitória, ES
+29047-510	;	Rua Armando Guimarães	;	Itararé	;	Vitória, ES
+29026-777	;	Rua Armando Mariani	;	Santa Tereza	;	Vitória, ES
+29026-301	;	Rua Armando Mariani	;	Santo Antônio	;	Vitória, ES
+29075-075	;	Rua Armando Moreira de Oliveira	;	Goiabeiras	;	Vitória, ES
+29015-714	;	Escadaria Arnaldina Gomes Vieira	;	Centro	;	Vitória, ES
+29020-741	;	Escadaria Arnaldina Gomes Vieira	;	do Moscoso	;	Vitória, ES
+29016-560	;	Escadaria Arnaldina Gomes Vieira	;	Piedade	;	Vitória, ES
+29015-718	;	Beco Arnaldina Gomes Vieira 1	;	Centro	;	Vitória, ES
+29056-125	;	Rua Arnaldo Magalhães Filho	;	Santa Lúcia	;	Vitória, ES
+29023-185	;	Rua Antônio Furlani	;	Inhanguetá	;	Vitória, ES
+29042-675	;	Escadaria Antônio Gil Veloso	;	Santos Dumont	;	Vitória, ES
+29043-235	;	Rua Antônio Gil Veloso	;	Santa Cecília	;	Vitória, ES
+29043-030	;	Rua Antônio Gomes Fileu	;	Maruípe	;	Vitória, ES
+29041-605	;	Escadaria Antônio Gonçalves Neves Primo	;	Cruzamento	;	Vitória, ES
+29090-570	;	Rua Antônio Guilherme do Nascimento	;	Jardim Camburi	;	Vitória, ES
+29066-020	;	Praça Antônio Jacob Saad	;	Mata da Praia	;	Vitória, ES
+29047-230	;	Rua Antônio José Cardoso	;	da Penha	;	Vitória, ES
+29048-030	;	Rua Antônio Keffer	;	Joana D'arc	;	Vitória, ES
+29046-510	;	Rua Antônio Keffer	;	Santa Martha	;	Vitória, ES
+29062-090	;	Travessa Antônio Lago	;	Pontal de Camburi	;	Vitória, ES
+29043-175	;	Rua Antônio Leonel dos Reis	;	Maruípe	;	Vitória, ES
+29075-540	;	Rua Antônio Lisboa do Nascimento	;	Boa Vista	;	Vitória, ES
+29075-060	;	Rua Antônio Lisboa do Nascimento	;	Goiabeiras	;	Vitória, ES
+29065-030	;	Rua Antônio Lopes Balero	;	Mata da Praia	;	Vitória, ES
+29046-087	;	Escadaria Antônio Lopes dos Reis	;	Gurigica	;	Vitória, ES
+29043-435	;	Rua Antônio Profilo	;	Tabuazeiro	;	Vitória, ES
+29043-011	;	Rua Antônio Profilo	;	Maruípe	;	Vitória, ES
+29046-135	;	Escadaria Antônio Ramos da Cruz	;	Gurigica	;	Vitória, ES
+29046-155	;	Beco Antônio Ramos da Cruz	;	Gurigica	;	Vitória, ES
+29047-056	;	Escadaria Antônio Rodrigues Bermudes	;	Bonfim	;	Vitória, ES
+29048-012	;	Rua Antônio Salomão Filho	;	Joana D'arc	;	Vitória, ES
+29043-032	;	Rua Antônio Santos	;	Maruípe	;	Vitória, ES
+29048-026	;	Rua Antônio Santos Borges	;	Joana D'arc	;	Vitória, ES
+29041-290	;	Escadaria Antônio Sebastião Salles	;	Nazareth	;	Vitória, ES
+29060-430	;	Praça Antônio Stiba	;	Jardim da Penha	;	Vitória, ES
+29025-656	;	Praça Antônio Trajano dos Santos	;	Caratoíra	;	Vitória, ES
+29052-079	;	Escadaria Antônio Virgílio	;	Jesus de Nazareth	;	Vitória, ES
+29062-025	;	Rua Antônio Zago	;	Pontal de Camburi	;	Vitória, ES
+29050-302	;	Rampa Antônio Luiz Carvacho 3	;	Enseada do Suá	;	Vitória, ES
+29052-300	;	Escadaria Antônio Luiz Curvacho	;	Praia do Suá	;	Vitória, ES
+29052-186	;	Servidão Antônio Luiz Curvacho 1	;	Praia do Suá	;	Vitória, ES
+29052-187	;	Escadaria Antônio Luiz Curvacho 2	;	Praia do Suá	;	Vitória, ES
+29070-294	;	Beco Antônio Luiz Maia	;	Maria Ortiz	;	Vitória, ES
+29066-030	;	Rua Antônio Marques	;	Mata da Praia	;	Vitória, ES
+29043-384	;	Escadaria Antônio Marques	;	Tabuazeiro	;	Vitória, ES
+29047-519	;	Travessa Antônio Mattos Peixoto	;	Itararé	;	Vitória, ES
+29043-586	;	Escadaria Antônio Miranda	;	Tabuazeiro	;	Vitória, ES
