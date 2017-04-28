@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by danilo on 06/04/17.
  */
-public class TesteTabelaHashEA {
+public class TesteHashTableEA {
     private Dicionario<String, String> dicionario;
 
     @Before

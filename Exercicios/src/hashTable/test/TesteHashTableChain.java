@@ -14,7 +14,7 @@ import static junit.framework.TestCase.assertEquals;
 /**
  * Created by danilo on 06/04/17.
  */
-public class TesteTabelaHashChain {
+public class TesteHashTableChain {
     private Dicionario<String, String> dicionario;
 
     @Before

@@ -12,7 +12,7 @@ public class BenchmarkMain {
 
     public static void main(String[] args) throws IOException {
         String projectPath = new File("").getAbsolutePath() + File.separator;
-        String classPath = "src" + File.separator + "hashTable" + File.separator + "hashTableBenchmark" + File.separator;
+        String classPath = "src" + File.separator + "hashTableBenchmark" + File.separator;
         String fullPath = projectPath + classPath;
 
         AgendaTelefonica agendaTelefonica = new AgendaTelefonica();

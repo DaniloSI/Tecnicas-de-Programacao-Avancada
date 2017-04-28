@@ -8,17 +8,17 @@ import java.util.LinkedList;
 /**
  * Created by Danilo de Oliveira on 22/03/2017.
  */
-public class TabelaHashEA extends HashTable {
+public class HashTableEA extends HashTable {
 
     private Item[] tabelaHash = new Item[tamanho];
 
-    public TabelaHashEA() { }
+    public HashTableEA() { }
 
-    public TabelaHashEA(HashEngine hE) {
+    public HashTableEA(HashEngine hE) {
         super(hE);
     }
 
-    public TabelaHashEA(int tam, HashEngine hE) {
+    public HashTableEA(int tam, HashEngine hE) {
         super(tam, hE);
     }
 
@@ -139,12 +139,17 @@ public class TabelaHashEA extends HashTable {
     private Integer getPosicao(Object key, int hashCode) {
         int posicao = getPosicao(hashCode);
 
-        for (int i = 0 ; i < (tamanho - 1) && tabelaHash[posicao] != null ; i++) {
+        // Procura um item existente com a mesma chave.
+        for (int i = 0 ; i < tamanho ; i++) {
             Item item = tabelaHash[posicao];
 
-            if (item.equals(new Item(key, null)))
+            if (item != null && item.equals(new Item(key, null)))
                 return posicao;
 
+            posicao = (posicao + 1) % tamanho;
+        }
+
+        while (tabelaHash[posicao] != null) {
             posicao = (posicao + 1) % tamanho;
         }
 

@@ -2,8 +2,8 @@ package hashTableDicionario;
 
 
 import hashTable.HashEngine;
-import hashTable.TabelaHashChain;
-import hashTable.TabelaHashEA;
+import hashTable.HashTableChain;
+import hashTable.HashTableEA;
 
 /**
  * Created by 20142bsi0186 on 06/04/2017.
@@ -29,9 +29,9 @@ public class DicionarioBuilder<TK, TV> {
 
     public Dicionario get() {
         if (tipoTabelaHash == TipoTabelaHash.CHINING)
-            return new Dicionario<TK, TV>(new TabelaHashChain(hashEngine));
+            return new Dicionario<TK, TV>(new HashTableChain(hashEngine));
         else
-            return new Dicionario<TK, TV>(new TabelaHashEA(hashEngine));
+            return new Dicionario<TK, TV>(new HashTableEA(hashEngine));
     }
 
 }

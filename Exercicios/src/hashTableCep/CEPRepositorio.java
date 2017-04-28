@@ -1,7 +1,7 @@
-package hashTableCep.cep;
+package hashTableCep;
 
 import hashTable.HashTable;
-import hashTable.TabelaHashEA;
+import hashTable.HashTableEA;
 
 import java.io.*;
 
@@ -13,7 +13,7 @@ public class CEPRepositorio {
     private HashTable ceps;
 
     public CEPRepositorio(File fileCEPs) throws IOException {
-        ceps = new TabelaHashEA();
+        ceps = new HashTableEA();
         readCEPs(fileCEPs);
     }
 

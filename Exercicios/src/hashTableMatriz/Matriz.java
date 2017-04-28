@@ -1,7 +1,7 @@
 package hashTableMatriz;
 
 import hashTable.HashTable;
-import hashTable.TabelaHashChain;
+import hashTable.HashTableChain;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -21,7 +21,7 @@ public class Matriz {
         this.numberOfRows = numberOfRows;
         this.numberOfColumns = numberOfColumns;
 
-        matriz = new TabelaHashChain(new HashEngineMat());
+        matriz = new HashTableChain(new HashEngineMat());
     }
 
     /**

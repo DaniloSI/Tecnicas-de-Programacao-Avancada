@@ -9,17 +9,17 @@ import java.util.List;
 /**
  * Created by Danilo de Oliveira on 22/03/2017.
  */
-public class TabelaHashChain extends HashTable {
+public class HashTableChain extends HashTable {
 
     private List<Item>[] tabelaHash = new LinkedList[tamanho];
 
-    public TabelaHashChain() { }
+    public HashTableChain() { }
 
-    public TabelaHashChain(HashEngine hE) {
+    public HashTableChain(HashEngine hE) {
         super(hE);
     }
 
-    public TabelaHashChain(int tam, HashEngine hE) {
+    public HashTableChain(int tam, HashEngine hE) {
         super(tam, hE);
     }
 
