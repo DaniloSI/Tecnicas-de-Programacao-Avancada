@@ -57,7 +57,7 @@ public class HashTablesMatrizMain {
 
         System.out.println(matrizOne.times(matrizTwo).equals(matrizResult));
 
-        matrizResult.salvaMMF("Produto_Matrizes.mtx");
+        matrizResult.salvaMMF(fullPath + "Produto_Matrizes.mtx");
         // Fim teste produto de matrizes
     }
 
