@@ -33,7 +33,13 @@ public class Matriz {
     public void add(int row, int column, float value) {
         Cell cell = new Cell(row, column, value);
 
-        if (value != 0.0f && row < numberOfRows && column < numberOfColumns)
+        if (row > numberOfRows)
+            numberOfRows = row;
+
+        if (column > numberOfColumns)
+            numberOfColumns = column;
+
+        if (value != 0.0f)
             matriz.insertItem(cell, cell);
     }
 
