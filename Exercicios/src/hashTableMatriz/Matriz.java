@@ -14,10 +14,10 @@ import java.io.IOException;
 public class Matriz {
 
     private HashTable matriz;
-    private int numberOfRows;
-    private int numberOfColumns;
+    private Integer numberOfRows;
+    private Integer numberOfColumns;
 
-    public Matriz(int numberOfRows, int numberOfColumns) {
+    public Matriz(Integer numberOfRows, Integer numberOfColumns) {
         this.numberOfRows = numberOfRows;
         this.numberOfColumns = numberOfColumns;
 
@@ -26,40 +26,52 @@ public class Matriz {
 
     /**
      * Responsável por adicionar um elemento na matriz em uma determinada linha e coluna.
-     * @param row Linha da matriz.
+     *
+     * @param row    Linha da matriz.
      * @param column Coluna da matriz.
-     * @param value Valor que será inserido.
+     * @param value  Valor que será inserido.
      */
-    public void add(int row, int column, float value) {
+    public void add(Integer row, Integer column, Float value) {
         Cell cell = new Cell(row, column, value);
 
-        if (row > numberOfRows)
-            numberOfRows = row;
+        if (row >= numberOfRows)
+            numberOfRows = row + 1;
 
-        if (column > numberOfColumns)
-            numberOfColumns = column;
+        if (column >= numberOfColumns)
+            numberOfColumns = column + 1;
 
-        if (value != 0.0f)
+        if (!value.equals(0.0F))
             matriz.insertItem(cell, cell);
+        else
+            matriz.removeItem(cell);
     }
 
-    public float get(int row, int column) {
+    public Float get(Integer row, Integer column) {
         Object objectCell;
 
-        if (row >= numberOfRows || row < 0 || column >= numberOfColumns || column < 0)
-            throw new IllegalArgumentException("Linha ou coluna inválida.");
+        if (!validRow(row) || !validColumn(column))
+            return null;
+
         else {
             objectCell = matriz.findElem(new Cell(row, column));
-            return (objectCell != HashTable.NO_SUCH_KEY) ? ((Cell) objectCell).getElem() : 0;
+            return (objectCell != HashTable.NO_SUCH_KEY) ? ((Cell) objectCell).getElem() : 0.0F;
         }
 
+    }
+
+    private boolean validRow(Integer row) {
+        return row != null && row < numberOfRows && row >= 0;
+    }
+
+    private boolean validColumn(Integer column) {
+        return column != null && column < numberOfColumns && column >= 0;
     }
 
     @Override
     public String toString() {
         String matriz = "";
         for (int row = 0; row < numberOfRows; row++) {
-             for (int column = 0; column < numberOfColumns; column++) {
+            for (int column = 0; column < numberOfColumns; column++) {
                 matriz += String.format("%7.2f   ", get(row, column));
             }
             matriz += ("\n");
@@ -68,16 +80,17 @@ public class Matriz {
         return matriz;
     }
 
-    public int getNumberOfRows() {
+    public Integer getNumberOfRows() {
         return numberOfRows;
     }
 
-    public int getNumberOfColumns() {
+    public Integer getNumberOfColumns() {
         return numberOfColumns;
     }
 
     /**
      * Multiplica a matriz por uma outra matriz.
+     *
      * @param matTwo Matriz a ser multiplicada.
      * @return Resultado da multiplicação das matrizes.
      */
@@ -88,10 +101,10 @@ public class Matriz {
             resultMatriz = new Matriz(numberOfRows, matTwo.getNumberOfColumns());
 
             for (int rowMatOne = 0; rowMatOne < numberOfRows; rowMatOne++) {
-                for (int colMatTwo = 0; colMatTwo < matTwo.getNumberOfColumns() ; colMatTwo++) {
+                for (int colMatTwo = 0; colMatTwo < matTwo.getNumberOfColumns(); colMatTwo++) {
                     float resultValue = 0.0f;
 
-                    for (int rowMatTwo = 0; rowMatTwo < matTwo.getNumberOfRows() ; rowMatTwo++) {
+                    for (int rowMatTwo = 0; rowMatTwo < matTwo.getNumberOfRows(); rowMatTwo++) {
                         float vCellOne = this.get(rowMatOne, rowMatTwo);
                         float vCellTwo = matTwo.get(rowMatTwo, colMatTwo);
 
@@ -107,7 +120,99 @@ public class Matriz {
     }
 
     /**
+     * Método que funciona para matrizes de qualquer dimensão.
+     * @param paramRow Linha a ser delatada da matriz.
+     */
+    public void removeRow(Integer paramRow) {
+        if (validRow(paramRow)) {
+            cleanDimension(paramRow, null);
+
+            for (int row = paramRow + 1; row < numberOfRows; row++) {
+                shiftDimension(row, null);
+            }
+
+            numberOfRows--;
+        }
+    }
+
+    /**
+     * Método que funciona para matrizes de qualquer dimensão.
+     * @param paramColumn Coluna da matriz a ser deletada.
+     */
+    public void removeColumn(Integer paramColumn) {
+        if (validColumn(paramColumn)) {
+            cleanDimension(null, paramColumn);
+
+            for (int col = paramColumn + 1; col < numberOfColumns; col++) {
+                shiftDimension(null, col);
+            }
+
+            numberOfColumns--;
+        }
+    }
+
+    /**
+     * Método que funciona somente para matrizes quadradas.
+     * @param paramRow Linha a ser deletada.
+     * @param paramColumn Coluna a ser deletada.
+     */
+    public void removeRowColumn(Integer paramRow, Integer paramColumn) {
+        if (validRow(paramRow) && validColumn(paramColumn) && paramRow.equals(paramColumn) && numberOfRows.equals(numberOfColumns)) {
+            cleanDimension(paramRow, paramColumn);
+
+            for (int dim = paramRow + 1; dim < numberOfRows && dim < numberOfColumns; dim++) {
+                shiftDimension(dim, dim);
+            }
+
+            numberOfRows--;
+            numberOfColumns--;
+        }
+    }
+
+    private void cleanDimension(Integer paramRow, Integer paramColumn) {
+        if (validRow(paramRow) && validColumn(paramColumn)) {
+            for (int dim = 0; dim < numberOfRows && dim < numberOfColumns; dim++) {
+                matriz.removeItem(new Cell(dim, paramColumn));
+                matriz.removeItem(new Cell(paramRow, dim));
+            }
+        } else if (validRow(paramRow)) {
+            for (int col = 0; col < numberOfColumns; col++) {
+                matriz.removeItem(new Cell(paramRow, col));
+            }
+        } else if (validColumn(paramColumn)) {
+            for (int row = 0; row < numberOfRows; row++) {
+                matriz.removeItem(new Cell(row, paramColumn));
+            }
+        }
+    }
+
+    private void shiftDimension(Integer paramRow, Integer paramColumn) {
+
+        if (validRow(paramRow) && validColumn(paramColumn)) {
+            System.out.println("ENtrou aqui!");
+            for (int dim = 0 ; dim < numberOfRows && dim < numberOfColumns; dim++) {
+                add(paramRow - 1, dim, get(paramRow, dim));
+                add(dim, paramColumn - 1, get(dim, paramColumn));
+            }
+        }
+
+        else if (validRow(paramRow)) {
+            for (int col = 0 ; col < numberOfColumns; col++) {
+                add(paramRow - 1, col, get(paramRow, col));
+            }
+        }
+
+        else if (validColumn(paramColumn)) {
+            for (int row = 0 ; row < numberOfRows ; row++) {
+                add(row, paramColumn - 1, get(row, paramColumn));
+            }
+        }
+
+    }
+
+    /**
      * Duas matrizes são iguais se tiver a mesma quantidade de linhas, a mesma quantidade de colunas e os valores das células correspondentes forem iguais.
+     *
      * @param object objeto.
      * @return Se as matrizes são iguais ou não.
      */
@@ -120,7 +225,7 @@ public class Matriz {
         if (qLinhasIguais && qColunasIguais) {
             for (int row = 0; row < numberOfRows; row++) {
                 for (int column = 0; column < numberOfColumns; column++) {
-                    if (matTwo.get(row, column) != this.get(row, column))
+                    if (!matTwo.get(row, column).equals(this.get(row, column)))
                         return false;
                 }
             }
@@ -138,7 +243,7 @@ public class Matriz {
         int linhas;
         int colunas;
 
-        while ((line = buffReader.readLine()) != null && line.length() > 0 && line.charAt(0) == '%');
+        while ((line = buffReader.readLine()) != null && line.length() > 0 && line.charAt(0) == '%') ;
 
         linhas = Integer.parseInt(line.replaceAll("\\s+", ",").split(",")[0]);
         colunas = Integer.parseInt(line.replaceAll("\\s+", ",").split(",")[1]);
@@ -166,7 +271,7 @@ public class Matriz {
 
         fileWriter.write(numberOfRows + " " + numberOfColumns + " " + matriz.size());
 
-        for (Object cellObject: matriz.elements()) {
+        for (Object cellObject : matriz.elements()) {
             Cell cell = (Cell) cellObject;
             Integer linha = cell.getI() + 1;
             Integer coluna = cell.getJ() + 1;

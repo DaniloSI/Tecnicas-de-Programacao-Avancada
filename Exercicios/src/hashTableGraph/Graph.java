@@ -11,13 +11,11 @@ import java.util.Iterator;
  */
 public abstract class Graph {
 
-    private int numVertices;
-    private int numEdges;
-    private HashTable vertices;
-    private HashTable edges;
-    private Matriz adjacencyMatrix;
-    private int newIdVertex;
-    private int newIdEdge;
+    protected int numVertices;
+    protected int numEdges;
+    protected HashTable vertices;
+    protected HashTable edges;
+    protected Matriz adjacencyMatrix;
 
     public Graph() {
         numVertices = 0;
@@ -122,7 +120,7 @@ public abstract class Graph {
      */
     Vertex insertVertex(Object x) {
         Vertex newVertex = new Vertex();
-        newVertex.setId(getNewIdVertex());
+        newVertex.setId(vertices.size());
         newVertex.setDado(x);
 
         vertices.insertItem(newVertex.getId(), newVertex);
@@ -136,46 +134,60 @@ public abstract class Graph {
      * @param x Elemento a ser armazenado na aresta.
      * @return Aresta criada com o elemento armazenado.
      */
-    Edge insertEdge(Vertex u, Vertex v, Object x) {
-        Edge newEdge = new Edge();
-        newEdge.setId(getNewIdEdge());
-        newEdge.setOriginVertex(u);
-        newEdge.setDestinationVertex(v);
-        newEdge.setDado(x);
-
-        edges.insertItem(newEdge.getId(), newEdge);
-
-        return newEdge;
-    }
-
-    // TODO: Implementar os métodos abaixo.
+    abstract Edge insertEdge(Vertex u, Vertex v, Object x);
 
     /**
      * Remove do grafo o vértice e todas as suas arestas incidentes.
      * @param v Vértice a ser removido.
      */
-    abstract void removeVertex(Vertex v);
+    void removeVertex(Vertex v) {
+
+        int vertexTarget = 0;
+
+        while (vertexTarget < vertices.size()) {
+            Edge edgeRemove = getEdge(v, (Vertex) vertices.findElem(vertexTarget));
+
+            if (edgeRemove != null) {
+                System.out.println("Remover: " + edgeRemove.getDado());
+                removeEdge(edgeRemove);
+            }
+            else
+                vertexTarget++;
+        }
+
+        // Remove da matriz de adjacencia.
+        adjacencyMatrix.removeRowColumn(v.getId(), v.getId());
+
+        // Desloca os vertices para um indice anterior.
+        for (int vertexId = v.getId() + 1 ; vertexId < vertices.size() ; vertexId++) {
+            Vertex vertex = (Vertex) vertices.findElem(vertexId);
+            vertex.setId(vertexId - 1);
+            vertices.insertItem(vertexId, vertex);
+        }
+
+        // Remove o vertice da "lista" de vertices.
+        vertices.removeItem(vertices.size() - 1);
+    }
 
     /**
      * Remove uma aresta 'e' do grafo.
      * @param e Aresta a ser removida.
      */
-    abstract void removeEdge(Edge e);
+    void removeEdge(Edge e) {
+        int vId = e.getOriginVertex().getId();
+        int uId = e.getDestinationVertex().getId();
 
-    private int getNewIdVertex() {
-        int newId = this.newIdVertex;
+        adjacencyMatrix.add(vId, uId, 0.0F);
+        adjacencyMatrix.add(uId, vId, 0.0F);
 
-        this.newIdVertex++;
+        // Desloca as arestas para um indice anterior.
+        for (int edgeId = e.getId() + 1 ; edgeId <= edges.size() ; edgeId++) {
+            Edge edge = (Edge) edges.findElem(edgeId);
+            edge.setId(edgeId - 1);
 
-        return newId;
+            edges.insertItem(edge.getId(), edge);
+        }
+
+        edges.removeItem(edges.size());
     }
-
-    private int getNewIdEdge() {
-        int newId = this.newIdEdge;
-
-        this.newIdEdge++;
-
-        return newId;
-    }
-
 }

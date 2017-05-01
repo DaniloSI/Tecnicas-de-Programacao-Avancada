@@ -26,36 +26,43 @@ public class HashTablesMatrizMain {
         Matriz matrizResult = new Matriz(2, 3);
 
 
-        matrizOne.add(0, 0, 9);
-        matrizOne.add(0, 1, 7);
-        matrizOne.add(0, 2, 5);
-        matrizOne.add(0, 3, 1);
-        matrizOne.add(1, 0, 2);
-        matrizOne.add(1, 1, 5);
-        matrizOne.add(1, 2, 1);
-        matrizOne.add(1, 3, 3);
+        matrizOne.add(0, 0, 9.0F);
+        matrizOne.add(0, 1, 7.0F);
+        matrizOne.add(0, 2, 5.0F);
+        matrizOne.add(0, 3, 1.0F);
+        matrizOne.add(1, 0, 2.0F);
+        matrizOne.add(1, 1, 5.0F);
+        matrizOne.add(1, 2, 1.0F);
+        matrizOne.add(1, 3, 3.0F);
 
-        matrizTwo.add(0, 0, 3);
-        matrizTwo.add(0, 1, 1);
-        matrizTwo.add(0, 2, 2);
-        matrizTwo.add(1, 0, 4);
-        matrizTwo.add(1, 1, 5);
-        matrizTwo.add(1, 2, 6);
-        matrizTwo.add(2, 0, 8);
-        matrizTwo.add(2, 1, 5);
-        matrizTwo.add(2, 2, 2);
-        matrizTwo.add(3, 0, 1);
-        matrizTwo.add(3, 1, 6);
-        matrizTwo.add(3, 2, 7);
+        matrizTwo.add(0, 0, 3.0F);
+        matrizTwo.add(0, 1, 1.0F);
+        matrizTwo.add(0, 2, 2.0F);
+        matrizTwo.add(1, 0, 4.0F);
+        matrizTwo.add(1, 1, 5.0F);
+        matrizTwo.add(1, 2, 6.0F);
+        matrizTwo.add(2, 0, 8.0F);
+        matrizTwo.add(2, 1, 5.0F);
+        matrizTwo.add(2, 2, 2.0F);
+        matrizTwo.add(3, 0, 1.0F);
+        matrizTwo.add(3, 1, 6.0F);
+        matrizTwo.add(3, 2, 7.0F);
 
-        matrizResult.add(0, 0, 96);
-        matrizResult.add(0, 1, 75);
-        matrizResult.add(0, 2, 77);
-        matrizResult.add(1, 0, 37);
-        matrizResult.add(1, 1, 50);
-        matrizResult.add(1, 2, 57);
+        matrizResult.add(0, 0, 96.0F);
+        matrizResult.add(0, 1, 75.0F);
+        matrizResult.add(0, 2, 77.0F);
+        matrizResult.add(1, 0, 37.0F);
+        matrizResult.add(1, 1, 50.0F);
+        matrizResult.add(1, 2, 57.0F);
 
         System.out.println(matrizOne.times(matrizTwo).equals(matrizResult));
+        System.out.println(matrizOne.times(matrizTwo));
+        System.out.println();
+        System.out.println(matrizResult);
+
+        matrizResult.removeRow(1);
+        matrizResult.removeColumn(1);
+        System.out.println(matrizResult);
 
         matrizResult.salvaMMF(fullPath + "Produto_Matrizes.mtx");
         // Fim teste produto de matrizes
