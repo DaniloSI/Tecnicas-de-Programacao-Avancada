@@ -1,6 +1,5 @@
 package hashTableGraph;
 
-import hashTable.HashTableChain;
 import hashTable.HashTableEA;
 
 import java.util.Iterator;
@@ -11,7 +10,7 @@ import java.util.Iterator;
 public class GraphDirected extends Graph {
 
     @Override
-    Edge getEdge(Vertex u, Vertex v) {
+    public Edge getEdge(Vertex u, Vertex v) {
         Float edgeId = adjacencyMatrix.get(u.getId(), v.getId());
 
 
@@ -29,27 +28,27 @@ public class GraphDirected extends Graph {
     }
 
     @Override
-    int outDegree(Vertex v) {
+    public int outDegree(Vertex v) {
         return 0;
     }
 
     @Override
-    int inDegree(Vertex v) {
+    public int inDegree(Vertex v) {
         return 0;
     }
 
     @Override
-    Iterator<Edge> outgoingEdges(Vertex v) {
+    public Iterator<Edge> outgoingEdges(Vertex v) {
         return null;
     }
 
     @Override
-    Iterator<Edge> incomingEdges(Vertex v) {
+    public Iterator<Edge> incomingEdges(Vertex v) {
         return null;
     }
 
     @Override
-    Edge insertEdge(Vertex u, Vertex v, Object x) {
+    public Edge insertEdge(Vertex u, Vertex v, Object x) {
         Edge newEdge = new Edge();
         newEdge.setId(edges.size() + 1);
         newEdge.setOriginVertex(u);

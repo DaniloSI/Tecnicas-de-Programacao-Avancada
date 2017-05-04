@@ -28,28 +28,28 @@ public abstract class Graph {
     /**
      * @return Quantidade de vertices.
      */
-    int numVertices() {
+    public int numVertices() {
         return numVertices;
     }
 
     /**
      * @return Iterator para todos os vértices.
      */
-    Iterator<Vertex> vertices() {
+    public Iterator<Vertex> vertices() {
         return vertices.elements().iterator();
     }
 
     /**
      * @return Quantidade de arestas.
      */
-    int numEdges() {
+    public int numEdges() {
         return numEdges;
     }
 
     /**
      * @return Iterator para todas as arestas.
      */
-    Iterator<Edge> edges() {
+    public Iterator<Edge> edges() {
         return edges.elements().iterator();
     }
 
@@ -58,7 +58,7 @@ public abstract class Graph {
      * @param v Vertice de destino.
      * @return Aresta que liga os vértices. Se não houver arestas, retorna null.
      */
-    abstract Edge getEdge(Vertex u, Vertex v);
+    public abstract Edge getEdge(Vertex u, Vertex v);
 
     /**
      * Retorna um array contendo dois vértices associados à uma aresta. O primeiro
@@ -67,7 +67,7 @@ public abstract class Graph {
      * @param e Aresta.
      * @return Array contendo os 2 vértices das extremidades da arestas.
      */
-    Vertex[] endVertices(Edge e) {
+    public Vertex[] endVertices(Edge e) {
         Vertex[] vertices = new Vertex[2];
 
         vertices[0] = e.getOriginVertex();
@@ -81,7 +81,7 @@ public abstract class Graph {
      * @param e Aresta incidente ao vértice.
      * @return O outro vértice relacionado.
      */
-    Vertex opposite(Vertex v, Edge e) {
+    public Vertex opposite(Vertex v, Edge e) {
         if (e.getOriginVertex().getId() == v.getId())
             return e.getDestinationVertex();
         else if (e.getDestinationVertex().getId() == v.getId())
@@ -94,34 +94,50 @@ public abstract class Graph {
      * @param v Vértice.
      * @return Quantidade de arestas saindo do vértice.
      */
-    abstract int outDegree(Vertex v);
+    public abstract int outDegree(Vertex v);
 
     /**
      * @param v Vértice.
      * @return Quantidade de arestas chegando ao vértice. Para grafos não direcionados, a saída é a mesma de outDegree.
      */
-    abstract int inDegree(Vertex v);
+    public abstract int inDegree(Vertex v);
 
     /**
      * @param v Vértice.
      * @return Iteração de todas as arestas saindo do vértice.
      */
-    abstract Iterator<Edge> outgoingEdges(Vertex v);
+    public abstract Iterator<Edge> outgoingEdges(Vertex v);
 
     /**
      * @param v Vértice.
      * @return Iteração de todas as arestas saindo do vértice.
      */
-    abstract Iterator<Edge> incomingEdges(Vertex v);
+    public abstract Iterator<Edge> incomingEdges(Vertex v);
 
     /**
      * @param x Elemento a ser armazenado no vértice do grafo.
      * @return Vértice criado contendo o elemento.
      */
-    Vertex insertVertex(Object x) {
+    public Vertex insertVertex(Object x) {
         Vertex newVertex = new Vertex();
         newVertex.setId(vertices.size());
         newVertex.setDado(x);
+
+        vertices.insertItem(newVertex.getId(), newVertex);
+
+        return newVertex;
+    }
+
+    /**
+     * @param x Elemento a ser armazenado no vértice do grafo.
+     * @param label Label do vertice.
+     * @return Vértice criado contendo o elemento.
+     */
+    public Vertex insertVertex(Object x, String label) {
+        Vertex newVertex = new Vertex();
+        newVertex.setId(vertices.size());
+        newVertex.setDado(x);
+        newVertex.setLabel(label);
 
         vertices.insertItem(newVertex.getId(), newVertex);
 
@@ -134,23 +150,21 @@ public abstract class Graph {
      * @param x Elemento a ser armazenado na aresta.
      * @return Aresta criada com o elemento armazenado.
      */
-    abstract Edge insertEdge(Vertex u, Vertex v, Object x);
+    public abstract Edge insertEdge(Vertex u, Vertex v, Object x);
 
     /**
      * Remove do grafo o vértice e todas as suas arestas incidentes.
      * @param v Vértice a ser removido.
      */
-    void removeVertex(Vertex v) {
+    public void removeVertex(Vertex v) {
 
         int vertexTarget = 0;
 
         while (vertexTarget < vertices.size()) {
             Edge edgeRemove = getEdge(v, (Vertex) vertices.findElem(vertexTarget));
 
-            if (edgeRemove != null) {
-                System.out.println("Remover: " + edgeRemove.getDado());
+            if (edgeRemove != null)
                 removeEdge(edgeRemove);
-            }
             else
                 vertexTarget++;
         }
@@ -173,7 +187,7 @@ public abstract class Graph {
      * Remove uma aresta 'e' do grafo.
      * @param e Aresta a ser removida.
      */
-    void removeEdge(Edge e) {
+    public void removeEdge(Edge e) {
         int vId = e.getOriginVertex().getId();
         int uId = e.getDestinationVertex().getId();
 

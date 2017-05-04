@@ -1,5 +1,7 @@
 package hashTableGraph;
 
+import java.util.Iterator;
+
 /**
  * Created by danilo on 30/04/17.
  */
@@ -7,20 +9,23 @@ public class GraphMain {
 
     public static void main(String[] args) {
         Graph grafo = new GraphDirected();
-        Vertex a = grafo.insertVertex("a");
-        Vertex b = grafo.insertVertex("b");
-        Vertex c = grafo.insertVertex("c");
+        Vertex a = grafo.insertVertex(1, "a");
+        Vertex b = grafo.insertVertex(2, "b");
+        Vertex c = grafo.insertVertex(3, "c");
 
-        Edge ab = grafo.insertEdge(a, b, "Aresta a-b");
-        Edge bc = grafo.insertEdge(b, c, "Aresta b-c");
-        Edge ac = grafo.insertEdge(a, c, "Aresta a-c");
+        grafo.insertEdge(a, b, "Aresta a-b");
+        grafo.insertEdge(b, c, "Aresta b-c");
+        grafo.insertEdge(a, c, "Aresta a-c");
 
-        System.out.println(grafo.getEdge(a, c).getDado());
-        System.out.println(grafo.opposite(a, ac).getDado());
+        Iterator edgesIterator = grafo.edges();
 
-        grafo.removeVertex(c);
+        while (edgesIterator.hasNext()) {
+            Edge edge = (Edge) edgesIterator.next();
+            Vertex[] vertices = grafo.endVertices(edge);
 
-        System.out.println(grafo.opposite(a, ac).getDado());
+            System.out.println("Vertice tail: " + vertices[0]);
+            System.out.println("Vertice head: " + vertices[1]);
+        }
     }
 
 }
