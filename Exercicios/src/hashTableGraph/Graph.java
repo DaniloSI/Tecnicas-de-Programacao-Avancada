@@ -26,6 +26,53 @@ public abstract class Graph {
     }
 
     /**
+     * @param v Vértice.
+     * @return Quantidade de arestas saindo do vértice.
+     */
+    public abstract int outDegree(Vertex v);
+
+    /**
+     * @param v Vértice.
+     * @return Quantidade de arestas chegando ao vértice. Para grafos não direcionados, a saída é a mesma de outDegree.
+     */
+    public abstract int inDegree(Vertex v);
+
+    /**
+     * @param v Vértice.
+     * @return Iteração de todas as arestas saindo do vértice.
+     */
+    public abstract Iterator<Edge> outgoingEdges(Vertex v);
+
+    /**
+     * @param v Vértice.
+     * @return Iteração de todas as arestas saindo do vértice.
+     */
+    public abstract Iterator<Edge> incomingEdges(Vertex v);
+
+    /**
+     * @param u Vértice de origem.
+     * @param v Vertice de destino.
+     * @return Aresta que liga os vértices. Se não houver arestas, retorna null.
+     */
+    public abstract Edge getEdge(Vertex u, Vertex v);
+
+    /**
+     * @param u Vértice um.
+     * @param v Vértice dois.
+     * @param x Elemento a ser armazenado na aresta.
+     * @return Aresta criada com o elemento armazenado.
+     */
+    public abstract Edge insertEdge(Vertex u, Vertex v, Object x);
+
+    /**
+     * @param u Vértice um.
+     * @param v Vértice dois.
+     * @param x Elemento a ser armazenado na aresta.
+     * @return Aresta criada com o elemento armazenado.
+     */
+    public abstract Edge insertEdge(Vertex u, Vertex v, Object x, String label);
+
+    /**
      * @return Quantidade de vertices.
      */
     public int numVertices() {
@@ -52,13 +99,6 @@ public abstract class Graph {
     public Iterator<Edge> edges() {
         return edges.elements().iterator();
     }
-
-    /**
-     * @param u Vértice de origem.
-     * @param v Vertice de destino.
-     * @return Aresta que liga os vértices. Se não houver arestas, retorna null.
-     */
-    public abstract Edge getEdge(Vertex u, Vertex v);
 
     /**
      * Retorna um array contendo dois vértices associados à uma aresta. O primeiro
@@ -91,30 +131,6 @@ public abstract class Graph {
     }
 
     /**
-     * @param v Vértice.
-     * @return Quantidade de arestas saindo do vértice.
-     */
-    public abstract int outDegree(Vertex v);
-
-    /**
-     * @param v Vértice.
-     * @return Quantidade de arestas chegando ao vértice. Para grafos não direcionados, a saída é a mesma de outDegree.
-     */
-    public abstract int inDegree(Vertex v);
-
-    /**
-     * @param v Vértice.
-     * @return Iteração de todas as arestas saindo do vértice.
-     */
-    public abstract Iterator<Edge> outgoingEdges(Vertex v);
-
-    /**
-     * @param v Vértice.
-     * @return Iteração de todas as arestas saindo do vértice.
-     */
-    public abstract Iterator<Edge> incomingEdges(Vertex v);
-
-    /**
      * @param x Elemento a ser armazenado no vértice do grafo.
      * @return Vértice criado contendo o elemento.
      */
@@ -143,14 +159,6 @@ public abstract class Graph {
 
         return newVertex;
     }
-
-    /**
-     * @param u Vértice um.
-     * @param v Vértice dois.
-     * @param x Elemento a ser armazenado na aresta.
-     * @return Aresta criada com o elemento armazenado.
-     */
-    public abstract Edge insertEdge(Vertex u, Vertex v, Object x);
 
     /**
      * Remove do grafo o vértice e todas as suas arestas incidentes.

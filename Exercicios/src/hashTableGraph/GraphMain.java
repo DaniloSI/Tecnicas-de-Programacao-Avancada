@@ -13,9 +13,9 @@ public class GraphMain {
         Vertex b = grafo.insertVertex(2, "b");
         Vertex c = grafo.insertVertex(3, "c");
 
-        grafo.insertEdge(a, b, "Aresta a-b");
-        grafo.insertEdge(b, c, "Aresta b-c");
-        grafo.insertEdge(a, c, "Aresta a-c");
+        grafo.insertEdge(a, b, 0, "Aresta a-b");
+        grafo.insertEdge(b, c, 1, "Aresta b-c");
+        Edge ac = grafo.insertEdge(a, c, 2, "Aresta a-c");
 
         Iterator edgesIterator = grafo.edges();
 
@@ -25,6 +25,12 @@ public class GraphMain {
 
             System.out.println("Vertice tail: " + vertices[0]);
             System.out.println("Vertice head: " + vertices[1]);
+        }
+
+        Iterator outGoingFromA = grafo.outgoingEdges(c);
+
+        while (outGoingFromA.hasNext()) {
+            System.out.println(outGoingFromA.next());
         }
     }
 

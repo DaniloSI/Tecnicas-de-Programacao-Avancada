@@ -49,4 +49,9 @@ public class Edge {
     public void setDestinationVertex(Vertex destinationVertex) {
         this.destinationVertex = destinationVertex;
     }
+
+    @Override
+    public String toString() {
+        return label;
+    }
 }
