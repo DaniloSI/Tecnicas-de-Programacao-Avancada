@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by danilo on 06/04/17.
