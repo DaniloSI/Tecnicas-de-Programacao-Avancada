@@ -85,6 +85,10 @@ public class GraphDirected extends Graph {
 
     @Override
     public Edge insertEdge(Vertex u, Vertex v, Object x) {
+
+        if (u == null || v == null)
+            return null;
+
         Edge newEdge = new Edge();
         newEdge.setId(edges.size() + 1);
         newEdge.setOriginVertex(u);
