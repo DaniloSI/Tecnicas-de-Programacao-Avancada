@@ -86,6 +86,7 @@ public class GraphDirected extends Graph {
     @Override
     public Edge insertEdge(Vertex u, Vertex v, Object x) {
 
+        // [ERRO] ==> Tratamento para o caso em que os vertices sao nulos.
         if (u == null || v == null)
             return null;
 
