@@ -97,7 +97,7 @@ public class GraphDirected extends Graph {
         newEdge.setDado(x);
 
         return saveEdge(newEdge);
-    }
+    } // Fim insertEdge(Vertex u, Vertex v, Object x);
 
     @Override
     public Edge insertEdge(Vertex u, Vertex v, Object x, String label) {
@@ -109,7 +109,7 @@ public class GraphDirected extends Graph {
         newEdge.setLabel(label);
 
         return saveEdge(newEdge);
-    }
+    } // Fim insertEdge(Vertex u, Vertex v, Object x, String label);
 
     private Edge saveEdge(Edge e) {
         edges.insertItem(e.getId(), e);
