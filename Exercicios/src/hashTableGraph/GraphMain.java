@@ -27,10 +27,15 @@ public class GraphMain {
             System.out.println("Vertice head: " + vertices[1]);
         }
 
-        Iterator outGoingFromA = grafo.outgoingEdges(c);
+        Iterator outGoingFromA = grafo.outgoingEdges(b);
+        Iterator incomingC = grafo.incomingEdges(c);
 
         while (outGoingFromA.hasNext()) {
-            System.out.println(outGoingFromA.next());
+            System.out.println("Aresta saindo de b: " + outGoingFromA.next());
+        }
+
+        while (incomingC.hasNext()) {
+            System.out.println("Aresta chegando em c: " + incomingC.next());
         }
     }
 

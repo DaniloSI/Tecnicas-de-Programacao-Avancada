@@ -70,7 +70,17 @@ public class GraphDirected extends Graph {
 
     @Override
     public Iterator<Edge> incomingEdges(Vertex v) {
-        return null;
+        LinkedList<Edge> edges = new LinkedList<>();
+        LinkedList keys = vertices.keys();
+
+        for (Object key: keys) {
+            Float idEdge = adjacencyMatrix.get((Integer) key, v.getId());
+
+            if (idEdge != null && idEdge != 0.0F)
+                edges.add((Edge) this.edges.findElem((int) (float)idEdge));
+        }
+
+        return edges.iterator();
     }
 
     @Override
