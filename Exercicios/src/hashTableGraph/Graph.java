@@ -5,6 +5,7 @@ import hashTable.HashTableEA;
 import hashTableMatriz.Matriz;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * Created by danilo on 28/04/17.
@@ -29,7 +30,17 @@ public abstract class Graph {
      * @param v Vértice.
      * @return Quantidade de arestas saindo do vértice.
      */
-    public abstract int outDegree(Vertex v);
+    public int outDegree(Vertex v) {
+        int outDegree = 0;
+        LinkedList keys = vertices.keys();
+
+        for (Object key: keys) {
+            if (adjacencyMatrix.get(v.getId(), (Integer) key) != 0)
+                outDegree++;
+        }
+
+        return outDegree;
+    }
 
     /**
      * @param v Vértice.
@@ -62,7 +73,20 @@ public abstract class Graph {
      * @param x Elemento a ser armazenado na aresta.
      * @return Aresta criada com o elemento armazenado.
      */
-    public abstract Edge insertEdge(Vertex u, Vertex v, Object x);
+    public Edge insertEdge(Vertex u, Vertex v, Object x)  {
+
+        // [ERRO] ==> Tratamento para o caso em que os vertices sao nulos.
+        if (u == null || v == null)
+            return null;
+
+        Edge newEdge = new Edge();
+        newEdge.setId(edges.size() + 1);
+        newEdge.setOriginVertex(u);
+        newEdge.setDestinationVertex(v);
+        newEdge.setDado(x);
+
+        return saveEdge(newEdge);
+    } // Fim insertEdge(Vertex u, Vertex v, Object x);
 
     /**
      * @param u Vértice um.
@@ -70,7 +94,18 @@ public abstract class Graph {
      * @param x Elemento a ser armazenado na aresta.
      * @return Aresta criada com o elemento armazenado.
      */
-    public abstract Edge insertEdge(Vertex u, Vertex v, Object x, String label);
+    public Edge insertEdge(Vertex u, Vertex v, Object x, String label) {
+        Edge newEdge = new Edge();
+        newEdge.setId(edges.size() + 1);
+        newEdge.setOriginVertex(u);
+        newEdge.setDestinationVertex(v);
+        newEdge.setDado(x);
+        newEdge.setLabel(label);
+
+        return saveEdge(newEdge);
+    } // Fim insertEdge(Vertex u, Vertex v, Object x, String label);
+
+    protected abstract Edge saveEdge(Edge e);
 
     /**
      * @return Quantidade de vertices.

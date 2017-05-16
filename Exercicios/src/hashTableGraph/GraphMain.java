@@ -8,6 +8,52 @@ import java.util.Iterator;
 public class GraphMain {
 
     public static void main(String[] args) {
+        testeGraphNDOutgoingEdges();
+    }
+
+    private static boolean testeGraphNDOutgoingEdges() {
+        Graph undirectedGraph = new GraphUndirected();
+
+        Vertex a = undirectedGraph.insertVertex(1, "a");
+        Vertex b = undirectedGraph.insertVertex(2, "b");
+        Vertex c = undirectedGraph.insertVertex(3, "c");
+
+        undirectedGraph.insertEdge(a, b, 0, "Aresta a-b");
+        undirectedGraph.insertEdge(b, c, 1, "Aresta b-c");
+        Edge ca = undirectedGraph.insertEdge(c, a, 2, "Aresta c-a");
+
+        Iterator edgesIterator = undirectedGraph.incomingEdges(a);
+
+        while (edgesIterator.hasNext()) {
+            Edge edge = (Edge) edgesIterator.next();
+            System.out.println("Edge saindo do vertice a: " + edge);
+        }
+
+        return true;
+    }
+
+    private static boolean testeGraphDOutgoingEdges() {
+        Graph undirectedGraph = new GraphDirected();
+
+        Vertex a = undirectedGraph.insertVertex(1, "a");
+        Vertex b = undirectedGraph.insertVertex(2, "b");
+        Vertex c = undirectedGraph.insertVertex(3, "c");
+
+        undirectedGraph.insertEdge(a, b, 0, "Aresta a-b");
+        undirectedGraph.insertEdge(b, c, 1, "Aresta b-c");
+        Edge ca = undirectedGraph.insertEdge(c, a, 2, "Aresta c-a");
+
+        Iterator edgesIterator = undirectedGraph.outgoingEdges(a);
+
+        while (edgesIterator.hasNext()) {
+            Edge edge = (Edge) edgesIterator.next();
+            System.out.println("Edge saindo do vertice a: " + edge);
+        }
+
+        return true;
+    }
+
+    private static boolean testeGrafoDirecionado() {
         Graph grafo = new GraphDirected();
         Vertex a = grafo.insertVertex(1, "a");
         Vertex b = grafo.insertVertex(2, "b");
@@ -37,6 +83,8 @@ public class GraphMain {
         while (incomingC.hasNext()) {
             System.out.println("Aresta chegando em c: " + incomingC.next());
         }
+
+        return true;
     }
 
 }

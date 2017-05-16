@@ -28,19 +28,6 @@ public class GraphDirected extends Graph {
     }
 
     @Override
-    public int outDegree(Vertex v) {
-        int outDegree = 0;
-        LinkedList keys = vertices.keys();
-
-        for (Object key: keys) {
-            if (adjacencyMatrix.get(v.getId(), (Integer) key) != 0)
-                outDegree++;
-        }
-
-        return outDegree;
-    }
-
-    @Override
     public int inDegree(Vertex v) {
         int inDegree = 0;
         LinkedList keys = vertices.keys();
@@ -84,34 +71,7 @@ public class GraphDirected extends Graph {
     }
 
     @Override
-    public Edge insertEdge(Vertex u, Vertex v, Object x) {
-
-        // [ERRO] ==> Tratamento para o caso em que os vertices sao nulos.
-        if (u == null || v == null)
-            return null;
-
-        Edge newEdge = new Edge();
-        newEdge.setId(edges.size() + 1);
-        newEdge.setOriginVertex(u);
-        newEdge.setDestinationVertex(v);
-        newEdge.setDado(x);
-
-        return saveEdge(newEdge);
-    } // Fim insertEdge(Vertex u, Vertex v, Object x);
-
-    @Override
-    public Edge insertEdge(Vertex u, Vertex v, Object x, String label) {
-        Edge newEdge = new Edge();
-        newEdge.setId(edges.size() + 1);
-        newEdge.setOriginVertex(u);
-        newEdge.setDestinationVertex(v);
-        newEdge.setDado(x);
-        newEdge.setLabel(label);
-
-        return saveEdge(newEdge);
-    } // Fim insertEdge(Vertex u, Vertex v, Object x, String label);
-
-    private Edge saveEdge(Edge e) {
+    protected Edge saveEdge(Edge e) {
         edges.insertItem(e.getId(), e);
         adjacencyMatrix.add(e.getOriginVertex().getId(), e.getDestinationVertex().getId(), (float) e.getId());
         return e;
